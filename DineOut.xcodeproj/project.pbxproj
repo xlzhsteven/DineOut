@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2DEDE96B37584A009C0CDF7A /* Pods_DineOut.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F67982AAD3B52C2F528FEADA /* Pods_DineOut.framework */; };
 		7A01AF291EF733D200AC701C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A01AF281EF733D200AC701C /* AppDelegate.swift */; };
-		7A01AF2B1EF733D200AC701C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A01AF2A1EF733D200AC701C /* ViewController.swift */; };
+		7A01AF2B1EF733D200AC701C /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A01AF2A1EF733D200AC701C /* ActivityViewController.swift */; };
 		7A01AF2E1EF733D200AC701C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A01AF2C1EF733D200AC701C /* Main.storyboard */; };
 		7A01AF301EF733D200AC701C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A01AF2F1EF733D200AC701C /* Assets.xcassets */; };
 		7A01AF331EF733D200AC701C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A01AF311EF733D200AC701C /* LaunchScreen.storyboard */; };
@@ -17,11 +18,14 @@
 /* Begin PBXFileReference section */
 		7A01AF251EF733D200AC701C /* DineOut.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DineOut.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A01AF281EF733D200AC701C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7A01AF2A1EF733D200AC701C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		7A01AF2A1EF733D200AC701C /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		7A01AF2D1EF733D200AC701C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7A01AF2F1EF733D200AC701C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7A01AF321EF733D200AC701C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7A01AF341EF733D200AC701C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		824BF5B8B4082C2457A67CAA /* Pods-DineOut.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DineOut.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DineOut/Pods-DineOut.debug.xcconfig"; sourceTree = "<group>"; };
+		BFAFB4A0C11E8F9AC00BFCFA /* Pods-DineOut.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DineOut.release.xcconfig"; path = "Pods/Target Support Files/Pods-DineOut/Pods-DineOut.release.xcconfig"; sourceTree = "<group>"; };
+		F67982AAD3B52C2F528FEADA /* Pods_DineOut.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DineOut.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +33,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2DEDE96B37584A009C0CDF7A /* Pods_DineOut.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		52351A7E4277ACAA42DD0DBC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F67982AAD3B52C2F528FEADA /* Pods_DineOut.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		7A01AF1C1EF733D200AC701C = {
 			isa = PBXGroup;
 			children = (
 				7A01AF271EF733D200AC701C /* DineOut */,
 				7A01AF261EF733D200AC701C /* Products */,
+				920356FF67BF41D8ABD6703A /* Pods */,
+				52351A7E4277ACAA42DD0DBC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -55,13 +70,22 @@
 			isa = PBXGroup;
 			children = (
 				7A01AF281EF733D200AC701C /* AppDelegate.swift */,
-				7A01AF2A1EF733D200AC701C /* ViewController.swift */,
+				7A01AF2A1EF733D200AC701C /* ActivityViewController.swift */,
 				7A01AF2C1EF733D200AC701C /* Main.storyboard */,
 				7A01AF2F1EF733D200AC701C /* Assets.xcassets */,
 				7A01AF311EF733D200AC701C /* LaunchScreen.storyboard */,
 				7A01AF341EF733D200AC701C /* Info.plist */,
 			);
 			path = DineOut;
+			sourceTree = "<group>";
+		};
+		920356FF67BF41D8ABD6703A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				824BF5B8B4082C2457A67CAA /* Pods-DineOut.debug.xcconfig */,
+				BFAFB4A0C11E8F9AC00BFCFA /* Pods-DineOut.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +95,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7A01AF371EF733D200AC701C /* Build configuration list for PBXNativeTarget "DineOut" */;
 			buildPhases = (
+				76F1E0A8CA136D28828F8D9E /* 📦 Check Pods Manifest.lock */,
 				7A01AF211EF733D200AC701C /* Sources */,
 				7A01AF221EF733D200AC701C /* Frameworks */,
 				7A01AF231EF733D200AC701C /* Resources */,
+				067023F1CC2ED0F56E68349D /* 📦 Embed Pods Frameworks */,
+				CDEA1DAA9430A1194AEB2E47 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -131,12 +158,60 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		067023F1CC2ED0F56E68349D /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DineOut/Pods-DineOut-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		76F1E0A8CA136D28828F8D9E /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		CDEA1DAA9430A1194AEB2E47 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DineOut/Pods-DineOut-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		7A01AF211EF733D200AC701C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7A01AF2B1EF733D200AC701C /* ViewController.swift in Sources */,
+				7A01AF2B1EF733D200AC701C /* ActivityViewController.swift in Sources */,
 				7A01AF291EF733D200AC701C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -258,6 +333,7 @@
 		};
 		7A01AF381EF733D200AC701C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 824BF5B8B4082C2457A67CAA /* Pods-DineOut.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = DineOut/Info.plist;
@@ -270,6 +346,7 @@
 		};
 		7A01AF391EF733D200AC701C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BFAFB4A0C11E8F9AC00BFCFA /* Pods-DineOut.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = DineOut/Info.plist;
