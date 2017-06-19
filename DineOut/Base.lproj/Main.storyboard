@@ -36,6 +36,9 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" id="Ysq-Tk-Q3T"/>
+                    <connections>
+                        <outlet property="activityTable" destination="R9q-fR-k9S" id="d1M-ux-1tN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

@@ -10,9 +10,10 @@ import UIKit
 
 class ActivityViewController: UIViewController {
 
+    @IBOutlet weak var activityTable: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        activityViewDataSource = ActivityDataSource(activityVC: self)
     }
 
     override func didReceiveMemoryWarning() {
@@ -20,6 +21,13 @@ class ActivityViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    var activityViewDataSource: ActivityDataSource? {
+        didSet {
+            if let dataSource = self.activityViewDataSource {
+                self.activityTable.dataSource = dataSource
+            }
+        }
+    }
+    
 }
 

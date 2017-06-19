@@ -13,6 +13,10 @@
 		7A01AF2E1EF733D200AC701C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A01AF2C1EF733D200AC701C /* Main.storyboard */; };
 		7A01AF301EF733D200AC701C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A01AF2F1EF733D200AC701C /* Assets.xcassets */; };
 		7A01AF331EF733D200AC701C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A01AF311EF733D200AC701C /* LaunchScreen.storyboard */; };
+		7ACA11981EF76700007ED13D /* ActivityDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACA11971EF76700007ED13D /* ActivityDataSource.swift */; };
+		7ACA119A1EF76763007ED13D /* ActivityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACA11991EF76763007ED13D /* ActivityViewModel.swift */; };
+		7ACA119D1EF7678C007ED13D /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACA119C1EF7678C007ED13D /* Activity.swift */; };
+		7ACA119F1EF78833007ED13D /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACA119E1EF78833007ED13D /* Person.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +27,10 @@
 		7A01AF2F1EF733D200AC701C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7A01AF321EF733D200AC701C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7A01AF341EF733D200AC701C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7ACA11971EF76700007ED13D /* ActivityDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityDataSource.swift; sourceTree = "<group>"; };
+		7ACA11991EF76763007ED13D /* ActivityViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityViewModel.swift; sourceTree = "<group>"; };
+		7ACA119C1EF7678C007ED13D /* Activity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
+		7ACA119E1EF78833007ED13D /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		824BF5B8B4082C2457A67CAA /* Pods-DineOut.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DineOut.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DineOut/Pods-DineOut.debug.xcconfig"; sourceTree = "<group>"; };
 		BFAFB4A0C11E8F9AC00BFCFA /* Pods-DineOut.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DineOut.release.xcconfig"; path = "Pods/Target Support Files/Pods-DineOut/Pods-DineOut.release.xcconfig"; sourceTree = "<group>"; };
 		F67982AAD3B52C2F528FEADA /* Pods_DineOut.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DineOut.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,14 +77,42 @@
 		7A01AF271EF733D200AC701C /* DineOut */ = {
 			isa = PBXGroup;
 			children = (
+				7ACA119B1EF7677B007ED13D /* Models */,
+				7ACA112A1EF76476007ED13D /* ViewModels */,
 				7A01AF281EF733D200AC701C /* AppDelegate.swift */,
 				7A01AF2A1EF733D200AC701C /* ActivityViewController.swift */,
+				7ACA11281EF76454007ED13D /* DataSources */,
 				7A01AF2C1EF733D200AC701C /* Main.storyboard */,
 				7A01AF2F1EF733D200AC701C /* Assets.xcassets */,
 				7A01AF311EF733D200AC701C /* LaunchScreen.storyboard */,
 				7A01AF341EF733D200AC701C /* Info.plist */,
 			);
 			path = DineOut;
+			sourceTree = "<group>";
+		};
+		7ACA11281EF76454007ED13D /* DataSources */ = {
+			isa = PBXGroup;
+			children = (
+				7ACA11971EF76700007ED13D /* ActivityDataSource.swift */,
+			);
+			name = DataSources;
+			sourceTree = "<group>";
+		};
+		7ACA112A1EF76476007ED13D /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				7ACA11991EF76763007ED13D /* ActivityViewModel.swift */,
+			);
+			name = ViewModels;
+			sourceTree = "<group>";
+		};
+		7ACA119B1EF7677B007ED13D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7ACA119C1EF7678C007ED13D /* Activity.swift */,
+				7ACA119E1EF78833007ED13D /* Person.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 		920356FF67BF41D8ABD6703A /* Pods */ = {
@@ -211,8 +247,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7ACA119F1EF78833007ED13D /* Person.swift in Sources */,
+				7ACA119D1EF7678C007ED13D /* Activity.swift in Sources */,
 				7A01AF2B1EF733D200AC701C /* ActivityViewController.swift in Sources */,
 				7A01AF291EF733D200AC701C /* AppDelegate.swift in Sources */,
+				7ACA11981EF76700007ED13D /* ActivityDataSource.swift in Sources */,
+				7ACA119A1EF76763007ED13D /* ActivityViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,6 +416,7 @@
 				7A01AF391EF733D200AC701C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
