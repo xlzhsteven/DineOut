@@ -11,9 +11,12 @@ import UIKit
 class ActivityViewController: UIViewController {
 
     @IBOutlet weak var activityTable: UITableView!
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         activityViewDataSource = ActivityDataSource(activityVC: self)
+        
     }
 
     override func didReceiveMemoryWarning() {
