@@ -21,9 +21,10 @@ class ActivityDataSource: NSObject {
 
 extension ActivityDataSource: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "activityCell", for: indexPath) as! ActivityTableCell
         let activity = activityViewModel.activity(withIndex: indexPath.row)
-        cell.profileImageView.image = UIImage(named: activity.profileImageName)
+        cell.profileImageView.image = UIImage(named: activity.sender.profileImageName!)
         cell.paymentMsgLabel.text = activity.paymentMessage
         cell.timeToDateLabel.text = activity.activityToDate
         cell.paymentInfoLabel.text = "\(activity.sender.firstName) \(activity.sender.lastName) paid \(activity.receiver.firstName) \(activity.receiver.lastName)"

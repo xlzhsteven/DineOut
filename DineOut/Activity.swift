@@ -16,9 +16,8 @@ class Activity: NSObject {
     var numberOfLikes: Int
     var numberOfComments: Int
     var amount: Double?
-    var profileImageName: String
     
-    init(sender: Person, receiver: Person, activityToDate: String, paymentMessage: String, numberOfLikes: Int, numberOfComments: Int, amount: Double? = 0, profileImageName: String) {
+    init(sender: Person, receiver: Person, activityToDate: String, paymentMessage: String, numberOfLikes: Int, numberOfComments: Int, amount: Double? = 0) {
         self.sender = sender
         self.receiver = receiver
         self.activityToDate = activityToDate
@@ -26,7 +25,6 @@ class Activity: NSObject {
         self.numberOfLikes = numberOfLikes
         self.numberOfComments = numberOfComments
         self.amount = amount
-        self.profileImageName = profileImageName
     }
     
 }

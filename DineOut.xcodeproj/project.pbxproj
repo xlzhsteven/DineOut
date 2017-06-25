@@ -16,6 +16,10 @@
 		7ACA119A1EF76763007ED13D /* ActivityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACA11991EF76763007ED13D /* ActivityViewModel.swift */; };
 		7ACA119D1EF7678C007ED13D /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACA119C1EF7678C007ED13D /* Activity.swift */; };
 		7ACA119F1EF78833007ED13D /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACA119E1EF78833007ED13D /* Person.swift */; };
+		CE06EA751EFF82D20051D8D8 /* AddRecipientsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE06EA741EFF82D20051D8D8 /* AddRecipientsViewController.swift */; };
+		CE06EA771EFF8B5D0051D8D8 /* AddRecipentsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE06EA761EFF8B5D0051D8D8 /* AddRecipentsDataSource.swift */; };
+		CE06EA791EFF8C860051D8D8 /* FriendTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE06EA781EFF8C860051D8D8 /* FriendTableCell.swift */; };
+		CE06EA7B1EFF8F760051D8D8 /* AddRecipientsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE06EA7A1EFF8F760051D8D8 /* AddRecipientsViewModel.swift */; };
 		CEC651161EFF6E0A00161D23 /* ActivityTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC651151EFF6E0A00161D23 /* ActivityTableCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +35,10 @@
 		7ACA11991EF76763007ED13D /* ActivityViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityViewModel.swift; sourceTree = "<group>"; };
 		7ACA119C1EF7678C007ED13D /* Activity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		7ACA119E1EF78833007ED13D /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		CE06EA741EFF82D20051D8D8 /* AddRecipientsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddRecipientsViewController.swift; sourceTree = "<group>"; };
+		CE06EA761EFF8B5D0051D8D8 /* AddRecipentsDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddRecipentsDataSource.swift; sourceTree = "<group>"; };
+		CE06EA781EFF8C860051D8D8 /* FriendTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendTableCell.swift; sourceTree = "<group>"; };
+		CE06EA7A1EFF8F760051D8D8 /* AddRecipientsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddRecipientsViewModel.swift; sourceTree = "<group>"; };
 		CEC651151EFF6E0A00161D23 /* ActivityTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityTableCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -67,7 +75,7 @@
 				7ACA119B1EF7677B007ED13D /* Models */,
 				7ACA112A1EF76476007ED13D /* ViewModels */,
 				7A01AF281EF733D200AC701C /* AppDelegate.swift */,
-				7A01AF2A1EF733D200AC701C /* ActivityViewController.swift */,
+				CE06EA731EFF82B50051D8D8 /* ViewControllers */,
 				CEC651141EFF6DED00161D23 /* Cells */,
 				7ACA11281EF76454007ED13D /* DataSources */,
 				7A01AF2C1EF733D200AC701C /* Main.storyboard */,
@@ -82,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				7ACA11971EF76700007ED13D /* ActivityDataSource.swift */,
+				CE06EA761EFF8B5D0051D8D8 /* AddRecipentsDataSource.swift */,
 			);
 			name = DataSources;
 			sourceTree = "<group>";
@@ -90,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				7ACA11991EF76763007ED13D /* ActivityViewModel.swift */,
+				CE06EA7A1EFF8F760051D8D8 /* AddRecipientsViewModel.swift */,
 			);
 			name = ViewModels;
 			sourceTree = "<group>";
@@ -103,10 +113,20 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		CE06EA731EFF82B50051D8D8 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				7A01AF2A1EF733D200AC701C /* ActivityViewController.swift */,
+				CE06EA741EFF82D20051D8D8 /* AddRecipientsViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
 		CEC651141EFF6DED00161D23 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
 				CEC651151EFF6E0A00161D23 /* ActivityTableCell.swift */,
+				CE06EA781EFF8C860051D8D8 /* FriendTableCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -186,10 +206,14 @@
 			files = (
 				7ACA119F1EF78833007ED13D /* Person.swift in Sources */,
 				7ACA119D1EF7678C007ED13D /* Activity.swift in Sources */,
+				CE06EA7B1EFF8F760051D8D8 /* AddRecipientsViewModel.swift in Sources */,
 				7A01AF2B1EF733D200AC701C /* ActivityViewController.swift in Sources */,
 				CEC651161EFF6E0A00161D23 /* ActivityTableCell.swift in Sources */,
 				7A01AF291EF733D200AC701C /* AppDelegate.swift in Sources */,
+				CE06EA771EFF8B5D0051D8D8 /* AddRecipentsDataSource.swift in Sources */,
+				CE06EA791EFF8C860051D8D8 /* FriendTableCell.swift in Sources */,
 				7ACA11981EF76700007ED13D /* ActivityDataSource.swift in Sources */,
+				CE06EA751EFF82D20051D8D8 /* AddRecipientsViewController.swift in Sources */,
 				7ACA119A1EF76763007ED13D /* ActivityViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

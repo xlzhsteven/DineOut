@@ -15,7 +15,7 @@ class ActivityViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.barTintColor = UIColor(red: 0.21, green: 0.53, blue: 0.78, alpha: 1)
+        
         activityViewDataSource = ActivityDataSource(activityVC: self)
         activityTable.separatorStyle = .none
         activityTable.rowHeight = UITableViewAutomaticDimension
@@ -29,11 +29,13 @@ class ActivityViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        navigationController?.navigationBar.barTintColor = UIColor(red: 0.21, green: 0.53, blue: 0.78, alpha: 1)
         UIApplication.shared.statusBarStyle = .lightContent
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        navigationController?.navigationBar.barTintColor = UIColor.white
         UIApplication.shared.statusBarStyle = .default
     }
 
