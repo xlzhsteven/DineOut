@@ -22,7 +22,7 @@ class ActivityViewModel: NSObject {
         
         activities.append(Activity(sender: Person(firstName: "Helen", lastName: "Estrada", userName: "helenEstrada", profileImageName: "user_helenestrada"), receiver: Person(firstName: "Joxie", lastName: "Patterson", userName: "joxiePatterson"), activityToDate: "1d", paymentMessage: "Best vegan lunch 🌳🌳", numberOfLikes: 1, numberOfComments: 1))
         
-        activities.append(Activity(sender: Person(firstName: "Josh", lastName: "Applebaum", userName: "joshApplebaum", profileImageName: "user_joshapplebaum"), receiver: Person(firstName: "Bryan", lastName: "Kying", userName: "bryanKying"), activityToDate: "2d", paymentMessage: "Thanks for hanging out with us today! Would be great to do this regularly, maybe every two weeks?", numberOfLikes: 0, numberOfComments: 0))
+        activities.append(Activity(sender: Person(firstName: "Josh", lastName: "Applebaum", userName: "joshApplebaum", profileImageName: "user_joshapplebaum"), receiver: Person(firstName: "Bryan", lastName: "Kying", userName: "bryanKying"), activityToDate: "2d", paymentMessage: "Thanks for hanging out with us today! Would be great to do this regularly, maybe every two weeks?", numberOfLikes: 0, numberOfComments: 0, amount: -32))
         
         activities.append(Activity(sender: Person(firstName: "Kevin", lastName: "Ward", userName: "kevinWard", profileImageName: "user_kevinward"), receiver: Person(firstName: "Ye", lastName: "Carlson", userName: "yeCharlson"), activityToDate: "2d", paymentMessage: "Copenhagen trip 🚲🛬", numberOfLikes: 0, numberOfComments: 0))
     }

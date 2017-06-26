@@ -17,4 +17,5 @@ class ActivityTableCell: UITableViewCell {
     @IBOutlet weak var favNumberLabel: UILabel!
     @IBOutlet weak var commentImageView: UIImageView!
     @IBOutlet weak var commentNumberLabel: UILabel!
+    @IBOutlet weak var amountLabel: UILabel!
 }

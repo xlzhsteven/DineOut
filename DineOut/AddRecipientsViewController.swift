@@ -12,11 +12,14 @@ class AddRecipientsViewController: UIViewController {
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var friendsListTableView: UITableView!
+    @IBOutlet weak var selectAllFriendsUiView: UIView!
+    @IBOutlet weak var searchBarTopConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(backButtonClicked))
         addRecipientsViewDataSource = AddRecipientsDataSource(addRecipentsVC: self)
+//        showSelectAllFriendsUIView()
         friendsListTableView.rowHeight = UITableViewAutomaticDimension
         friendsListTableView.estimatedRowHeight = 80
     }
@@ -30,6 +33,17 @@ class AddRecipientsViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    func showSelectAllFriendsUIView() {
+        selectAllFriendsUiView.isHidden = false
+        searchBarTopConstraint.constant = selectAllFriendsUiView.bounds.height
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .plain, target: self, action: #selector(nextButtonClicked))
+        navigationItem.title = "Dine Out"
+    }
+    
+    func nextButtonClicked() {
+        print("segueway to DineOut page")
+    }
+    
     var addRecipientsViewDataSource: AddRecipientsDataSource? {
         didSet {
             if let dataSource = self.addRecipientsViewDataSource {
@@ -37,4 +51,5 @@ class AddRecipientsViewController: UIViewController {
             }
         }
     }
+    
 }
