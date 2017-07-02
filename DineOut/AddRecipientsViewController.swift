@@ -10,6 +10,13 @@ import UIKit
 
 class AddRecipientsViewController: UIViewController {
     
+    enum TransactionMethod {
+        case normal
+        case splitBill
+    }
+    
+    var transactionMethod: TransactionMethod = .normal
+    
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var friendsListTableView: UITableView!
     @IBOutlet weak var selectAllFriendsUiView: UIView!
@@ -18,10 +25,12 @@ class AddRecipientsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(backButtonClicked))
-        addRecipientsViewDataSource = AddRecipientsDataSource(addRecipentsVC: self)
-//        showSelectAllFriendsUIView()
+        addRecipientsViewDataSource = AddRecipientsDataSourceDelegate(addRecipentsVC: self)
         friendsListTableView.rowHeight = UITableViewAutomaticDimension
         friendsListTableView.estimatedRowHeight = 80
+        if transactionMethod == .splitBill {
+            showSelectAllFriendsUIView()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -44,12 +53,13 @@ class AddRecipientsViewController: UIViewController {
         print("segueway to DineOut page")
     }
     
-    var addRecipientsViewDataSource: AddRecipientsDataSource? {
+    var addRecipientsViewDataSource: AddRecipientsDataSourceDelegate? {
         didSet {
-            if let dataSource = self.addRecipientsViewDataSource {
-                self.friendsListTableView.dataSource = dataSource
+            if let dataSourceDelegate = self.addRecipientsViewDataSource {
+                self.friendsListTableView.dataSource = dataSourceDelegate
+                self.friendsListTableView.delegate = dataSourceDelegate
+                self.searchBar.delegate = dataSourceDelegate
             }
         }
     }
-    
 }

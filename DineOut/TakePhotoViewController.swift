@@ -310,6 +310,7 @@ class TakePhotoViewController: UIViewController {
                 let imageData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(sampleBuffer)
                 let image = UIImage(data: imageData!)
                 self.savePhotoToLibrary(image!)
+                
                 // TODO: if image is not nil, send data to backend and process json
                 // Present Add Recipients view to add friends
                 // Once friend selection is done, if response has came back from backend, populate view for the user item binding, otherwise show spinner till data is ready
@@ -318,15 +319,10 @@ class TakePhotoViewController: UIViewController {
             }
         }
     }
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
+   
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let viewController = segue.destination as? AddRecipientsViewController {
+            viewController.transactionMethod = .splitBill
+        }
+    }
 }

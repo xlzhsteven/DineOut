@@ -17,7 +17,7 @@
 		7ACA119D1EF7678C007ED13D /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACA119C1EF7678C007ED13D /* Activity.swift */; };
 		7ACA119F1EF78833007ED13D /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACA119E1EF78833007ED13D /* Person.swift */; };
 		CE06EA751EFF82D20051D8D8 /* AddRecipientsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE06EA741EFF82D20051D8D8 /* AddRecipientsViewController.swift */; };
-		CE06EA771EFF8B5D0051D8D8 /* AddRecipentsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE06EA761EFF8B5D0051D8D8 /* AddRecipentsDataSource.swift */; };
+		CE06EA771EFF8B5D0051D8D8 /* AddRecipientsDataSourceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE06EA761EFF8B5D0051D8D8 /* AddRecipientsDataSourceDelegate.swift */; };
 		CE06EA791EFF8C860051D8D8 /* FriendTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE06EA781EFF8C860051D8D8 /* FriendTableCell.swift */; };
 		CE06EA7B1EFF8F760051D8D8 /* AddRecipientsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE06EA7A1EFF8F760051D8D8 /* AddRecipientsViewModel.swift */; };
 		CE06EA7D1F002DFB0051D8D8 /* TakePhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE06EA7C1F002DFB0051D8D8 /* TakePhotoViewController.swift */; };
@@ -37,7 +37,7 @@
 		7ACA119C1EF7678C007ED13D /* Activity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		7ACA119E1EF78833007ED13D /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		CE06EA741EFF82D20051D8D8 /* AddRecipientsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddRecipientsViewController.swift; sourceTree = "<group>"; };
-		CE06EA761EFF8B5D0051D8D8 /* AddRecipentsDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddRecipentsDataSource.swift; sourceTree = "<group>"; };
+		CE06EA761EFF8B5D0051D8D8 /* AddRecipientsDataSourceDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddRecipientsDataSourceDelegate.swift; sourceTree = "<group>"; };
 		CE06EA781EFF8C860051D8D8 /* FriendTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendTableCell.swift; sourceTree = "<group>"; };
 		CE06EA7A1EFF8F760051D8D8 /* AddRecipientsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddRecipientsViewModel.swift; sourceTree = "<group>"; };
 		CE06EA7C1F002DFB0051D8D8 /* TakePhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TakePhotoViewController.swift; sourceTree = "<group>"; };
@@ -92,7 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				7ACA11971EF76700007ED13D /* ActivityDataSource.swift */,
-				CE06EA761EFF8B5D0051D8D8 /* AddRecipentsDataSource.swift */,
+				CE06EA761EFF8B5D0051D8D8 /* AddRecipientsDataSourceDelegate.swift */,
 			);
 			name = DataSources;
 			sourceTree = "<group>";
@@ -213,7 +213,7 @@
 				7A01AF2B1EF733D200AC701C /* ActivityViewController.swift in Sources */,
 				CEC651161EFF6E0A00161D23 /* ActivityTableCell.swift in Sources */,
 				7A01AF291EF733D200AC701C /* AppDelegate.swift in Sources */,
-				CE06EA771EFF8B5D0051D8D8 /* AddRecipentsDataSource.swift in Sources */,
+				CE06EA771EFF8B5D0051D8D8 /* AddRecipientsDataSourceDelegate.swift in Sources */,
 				CE06EA791EFF8C860051D8D8 /* FriendTableCell.swift in Sources */,
 				7ACA11981EF76700007ED13D /* ActivityDataSource.swift in Sources */,
 				CE06EA751EFF82D20051D8D8 /* AddRecipientsViewController.swift in Sources */,

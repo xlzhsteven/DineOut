@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G18a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="gVk-ab-2IF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G23a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="gVk-ab-2IF">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -209,7 +209,7 @@
                             <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         </barButtonItem>
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="1" id="sLc-PP-k2T">
-                            <rect key="frame" x="67.5" y="7" width="240" height="30"/>
+                            <rect key="frame" x="87" y="7" width="240" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
                                 <segment title="" image="ic_globeb"/>
@@ -244,7 +244,7 @@
                         <viewControllerLayoutGuide type="bottom" id="QTm-2W-TxB"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="MMr-Im-9Dj">
-                        <rect key="frame" x="0.0" y="64" width="414" height="672"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xqG-PF-r3f">
@@ -265,11 +265,11 @@
                                 </constraints>
                             </view>
                             <searchBar contentMode="redraw" placeholder="To: Name, @username" translatesAutoresizingMaskIntoConstraints="NO" id="4US-af-287">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="79" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DuQ-9z-7yA">
-                                <rect key="frame" x="0.0" y="44" width="414" height="584"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="friendCell" rowHeight="79" id="vZb-SK-jD8" customClass="FriendTableCell" customModule="DineOut" customModuleProvider="target">
@@ -323,6 +323,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="infoIconImage" destination="neR-1h-tLt" id="wD0-Oi-fz5"/>
                                             <outlet property="nameLabel" destination="P8b-jp-yS5" id="r6X-Rm-8Jz"/>
                                             <outlet property="profileImageView" destination="wKl-uM-Hmg" id="Jz3-jZ-ndY"/>
                                             <outlet property="userNameLabel" destination="RWs-iM-UsH" id="dgq-GV-3vR"/>
@@ -356,7 +357,7 @@
                     <connections>
                         <outlet property="friendsListTableView" destination="DuQ-9z-7yA" id="0LX-gP-p90"/>
                         <outlet property="searchBar" destination="4US-af-287" id="Xcv-Do-5lw"/>
-                        <outlet property="searchBarTopConstraint" destination="ZgY-Zu-LTM" id="zhn-N1-hd4"/>
+                        <outlet property="searchBarTopConstraint" destination="ZgY-Zu-LTM" id="Lrt-xN-VDo"/>
                         <outlet property="selectAllFriendsUiView" destination="xqG-PF-r3f" id="NHZ-Gd-0pX"/>
                     </connections>
                 </viewController>
@@ -367,24 +368,24 @@
         <!--Dine Out-->
         <scene sceneID="H6Q-ko-V6h">
             <objects>
-                <viewController id="yfD-bz-CsO" customClass="TakePhotoViewController" customModule="DineOut" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="takePhoto" id="yfD-bz-CsO" customClass="TakePhotoViewController" customModule="DineOut" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="BX4-R3-3L5"/>
                         <viewControllerLayoutGuide type="bottom" id="q0A-W6-GPf"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="E5q-xQ-y2C">
-                        <rect key="frame" x="0.0" y="64" width="414" height="672"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wcq-9N-iNa">
-                                <rect key="frame" x="0.0" y="40" width="414" height="628"/>
+                                <rect key="frame" x="0.0" y="60" width="414" height="716"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1ec-wG-XBN">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
+                                <rect key="frame" x="0.0" y="20" width="414" height="40"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Take a picture of the receipt" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nRK-bv-Mwm">
-                                        <rect key="frame" x="115" y="11.666666666666668" width="184.66666666666669" height="17.333333333333336"/>
+                                        <rect key="frame" x="115" y="11.66666666666667" width="184.66666666666669" height="17.333333333333329"/>
                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -398,7 +399,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Toj-Xy-nPR">
-                                <rect key="frame" x="0.0" y="528" width="414" height="100"/>
+                                <rect key="frame" x="0.0" y="636" width="414" height="100"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WB8-xH-4FS">
                                         <rect key="frame" x="167" y="10.666666666666629" width="80" height="80"/>
@@ -409,6 +410,7 @@
                                         <state key="normal" image="camera_button"/>
                                         <connections>
                                             <action selector="capturePhoto:" destination="yfD-bz-CsO" eventType="touchUpInside" id="ySI-kw-9cN"/>
+                                            <segue destination="4kQ-Qp-nMg" kind="show" id="xUH-Gs-TaI"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -455,4 +457,7 @@
         <image name="ic_peopleb" width="24" height="18"/>
         <image name="ic_personb" width="16" height="18"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="xUH-Gs-TaI"/>
+    </inferredMetricsTieBreakers>
 </document>
