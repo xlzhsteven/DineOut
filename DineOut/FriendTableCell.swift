@@ -13,25 +13,34 @@ class FriendTableCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var infoIconImage: UIImageView!
-    var hasBeenSelected: Bool = false
+    let iconColor = UIColor(red: 0.21, green: 0.53, blue: 0.78, alpha: 1)
+    var hasBeenSelected: Bool = false {
+        didSet {
+            setInfoIcon()
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        let iconColor = UIColor(red: 0.21, green: 0.53, blue: 0.78, alpha: 1)
-        setInfoIcon(withColor: iconColor)
-        
+        setInfoIcon()
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        // Configure the view for the selected state
     }
     
-    func setInfoIcon(withColor color: UIColor) {
-        let image = UIImage(named:"icInfoblack20")?.withRenderingMode(.alwaysTemplate)
+    func setInfoIcon(withImageName imageName: String, withColor color: UIColor) {
+        let image = UIImage(named: imageName)?.withRenderingMode(.alwaysTemplate)
         infoIconImage.tintColor = color
         infoIconImage.image = image
+    }
+    
+    func setInfoIcon() {
+        if hasBeenSelected {
+            setInfoIcon(withImageName: "ic_checkmark", withColor: iconColor)
+        } else {
+            setInfoIcon(withImageName: "icInfoblack20", withColor: iconColor)
+        }
     }
 }
 
