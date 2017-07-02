@@ -17,9 +17,7 @@ class AddRecipientsDataSourceDelegate: NSObject {
     
     fileprivate weak var addRecipentsViewController: AddRecipientsViewController?
     fileprivate var addRecipentsViewModel: AddRecipientsViewModel
-    fileprivate var filteredResults: [Person] = []
     fileprivate var searchState: SearchState = .searchDismissed
-    fileprivate var selectionStates = [String: Bool]()
     
     init(addRecipentsVC: AddRecipientsViewController) {
         self.addRecipentsViewController = addRecipentsVC
@@ -28,20 +26,23 @@ class AddRecipientsDataSourceDelegate: NSObject {
     
     // MARK: helper method
     func filter(from friends: [Person], with searchString: String) {
-        let filteredByNameArray = friends.filter {
+        addRecipentsViewModel.filteredResults = friends.filter {
             $0.firstName.localizedCaseInsensitiveContains(searchString)
                 || $0.lastName.localizedCaseInsensitiveContains(searchString)
                 || $0.userName.localizedCaseInsensitiveContains(searchString)
         }
-        filteredResults = filteredByNameArray
+    }
+    
+    func inSearchMode() -> Bool {
+        return searchState == .searchActivated && addRecipentsViewModel.filteredResults.count > 0
     }
 }
 
 extension AddRecipientsDataSourceDelegate: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let friend: Person
-        if searchState == .searchActivated && filteredResults.count > 0 {
-            friend = filteredResults[indexPath.row]
+        if inSearchMode() {
+            friend = addRecipentsViewModel.filteredResults[indexPath.row]
         } else {
             friend = addRecipentsViewModel.person(withIndexPath: indexPath)
         }
@@ -50,7 +51,7 @@ extension AddRecipientsDataSourceDelegate: UITableViewDataSource {
         cell.profileImageView.image = UIImage(named: friend.profileImageName!)
         cell.userNameLabel.text = "@\(friend.userName)"
         cell.nameLabel.text = "\(friend.firstName) \(friend.lastName)"
-        if let isSelected = selectionStates[friend.userName] {
+        if let isSelected = addRecipentsViewModel.selectedFriends[friend.userName] {
             cell.hasBeenSelected = isSelected
         } else {
             cell.hasBeenSelected = false
@@ -61,14 +62,14 @@ extension AddRecipientsDataSourceDelegate: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if searchState == .searchActivated && filteredResults.count > 0 {
-            return filteredResults.count
+        if inSearchMode() {
+            return addRecipentsViewModel.filteredResults.count
         }
         return addRecipentsViewModel.numberOfRowInSection(section)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        if searchState == .searchActivated && filteredResults.count > 0 {
+        if inSearchMode() {
             return 1
         }
         return addRecipentsViewModel.numberOfSection()
@@ -87,15 +88,17 @@ extension AddRecipientsDataSourceDelegate: UITableViewDelegate {
         print("didSelectRowAt indexpath row \(indexPath.row)")
         let person: Person
         addRecipentsViewController?.searchBar.resignFirstResponder()
-        if searchState == .searchActivated && filteredResults.count > 0 {
-            person = filteredResults[indexPath.row]
+        if inSearchMode() {
+            person = addRecipentsViewModel.filteredResults[indexPath.row]
         } else {
             person = addRecipentsViewModel.person(withIndexPath: indexPath)
         }
-        if let isSelected = selectionStates[person.userName] {
-            selectionStates[person.userName] = !isSelected
+        if let _ = addRecipentsViewModel.selectedFriends[person.userName] {
+            // If element already exist in the selected list, click on the same item should remove item from list
+            addRecipentsViewModel.selectedFriends.removeValue(forKey: person.userName)
         } else {
-            selectionStates[person.userName] = true
+            // If element can't be found, add to the dictionary
+            addRecipentsViewModel.selectedFriends[person.userName] = true
         }
         self.addRecipentsViewController?.friendsListTableView.reloadData()
     }

@@ -11,6 +11,8 @@ import Foundation
 class AddRecipientsViewModel: NSObject {
     var friends: [Person] = []
     var topPeople: [Person] = []
+    var filteredResults: [Person] = []
+    var selectedFriends = [String: Bool]()
     
     override init() {
         super.init()
