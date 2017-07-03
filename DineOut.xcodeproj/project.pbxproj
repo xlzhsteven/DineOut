@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5AD3F8D2969C8E72500CABB1 /* Pods_DineOut.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46E984E69FC99F1193533661 /* Pods_DineOut.framework */; };
 		7A01AF291EF733D200AC701C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A01AF281EF733D200AC701C /* AppDelegate.swift */; };
 		7A01AF2B1EF733D200AC701C /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A01AF2A1EF733D200AC701C /* ActivityViewController.swift */; };
 		7A01AF2E1EF733D200AC701C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A01AF2C1EF733D200AC701C /* Main.storyboard */; };
@@ -21,10 +22,17 @@
 		CE06EA791EFF8C860051D8D8 /* FriendTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE06EA781EFF8C860051D8D8 /* FriendTableCell.swift */; };
 		CE06EA7B1EFF8F760051D8D8 /* AddRecipientsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE06EA7A1EFF8F760051D8D8 /* AddRecipientsViewModel.swift */; };
 		CE06EA7D1F002DFB0051D8D8 /* TakePhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE06EA7C1F002DFB0051D8D8 /* TakePhotoViewController.swift */; };
+		CE1D5F9F1F09AB540074AE0C /* ItemFriendBindingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D5F9E1F09AB540074AE0C /* ItemFriendBindingViewController.swift */; };
+		CE1D5FA11F09AB980074AE0C /* ItemFriendBindingDataSourceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D5FA01F09AB980074AE0C /* ItemFriendBindingDataSourceDelegate.swift */; };
+		CE1D5FA51F09AC680074AE0C /* ItemFriendBindingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D5FA41F09AC680074AE0C /* ItemFriendBindingViewModel.swift */; };
+		CE1D5FA71F09BD060074AE0C /* Receipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D5FA61F09BD060074AE0C /* Receipt.swift */; };
 		CEC651161EFF6E0A00161D23 /* ActivityTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC651151EFF6E0A00161D23 /* ActivityTableCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		182B96DD3CD34BE2709F86DF /* Pods-DineOut.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DineOut.release.xcconfig"; path = "Pods/Target Support Files/Pods-DineOut/Pods-DineOut.release.xcconfig"; sourceTree = "<group>"; };
+		46E984E69FC99F1193533661 /* Pods_DineOut.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DineOut.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		735FA26B39A8C70957BBCC57 /* Pods-DineOut.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DineOut.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DineOut/Pods-DineOut.debug.xcconfig"; sourceTree = "<group>"; };
 		7A01AF251EF733D200AC701C /* DineOut.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DineOut.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A01AF281EF733D200AC701C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7A01AF2A1EF733D200AC701C /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
@@ -41,6 +49,10 @@
 		CE06EA781EFF8C860051D8D8 /* FriendTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendTableCell.swift; sourceTree = "<group>"; };
 		CE06EA7A1EFF8F760051D8D8 /* AddRecipientsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddRecipientsViewModel.swift; sourceTree = "<group>"; };
 		CE06EA7C1F002DFB0051D8D8 /* TakePhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TakePhotoViewController.swift; sourceTree = "<group>"; };
+		CE1D5F9E1F09AB540074AE0C /* ItemFriendBindingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemFriendBindingViewController.swift; sourceTree = "<group>"; };
+		CE1D5FA01F09AB980074AE0C /* ItemFriendBindingDataSourceDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemFriendBindingDataSourceDelegate.swift; sourceTree = "<group>"; };
+		CE1D5FA41F09AC680074AE0C /* ItemFriendBindingViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemFriendBindingViewModel.swift; sourceTree = "<group>"; };
+		CE1D5FA61F09BD060074AE0C /* Receipt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Receipt.swift; sourceTree = "<group>"; };
 		CEC651151EFF6E0A00161D23 /* ActivityTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityTableCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -49,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5AD3F8D2969C8E72500CABB1 /* Pods_DineOut.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,6 +73,8 @@
 			children = (
 				7A01AF271EF733D200AC701C /* DineOut */,
 				7A01AF261EF733D200AC701C /* Products */,
+				D411B52E1BFE40A93674E42D /* Pods */,
+				C86B4F5E3F2B9AC7827C53BD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -93,6 +108,7 @@
 			children = (
 				7ACA11971EF76700007ED13D /* ActivityDataSource.swift */,
 				CE06EA761EFF8B5D0051D8D8 /* AddRecipientsDataSourceDelegate.swift */,
+				CE1D5FA01F09AB980074AE0C /* ItemFriendBindingDataSourceDelegate.swift */,
 			);
 			name = DataSources;
 			sourceTree = "<group>";
@@ -102,6 +118,7 @@
 			children = (
 				7ACA11991EF76763007ED13D /* ActivityViewModel.swift */,
 				CE06EA7A1EFF8F760051D8D8 /* AddRecipientsViewModel.swift */,
+				CE1D5FA41F09AC680074AE0C /* ItemFriendBindingViewModel.swift */,
 			);
 			name = ViewModels;
 			sourceTree = "<group>";
@@ -111,8 +128,17 @@
 			children = (
 				7ACA119C1EF7678C007ED13D /* Activity.swift */,
 				7ACA119E1EF78833007ED13D /* Person.swift */,
+				CE1D5FA61F09BD060074AE0C /* Receipt.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		C86B4F5E3F2B9AC7827C53BD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				46E984E69FC99F1193533661 /* Pods_DineOut.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		CE06EA731EFF82B50051D8D8 /* ViewControllers */ = {
@@ -121,6 +147,7 @@
 				7A01AF2A1EF733D200AC701C /* ActivityViewController.swift */,
 				CE06EA741EFF82D20051D8D8 /* AddRecipientsViewController.swift */,
 				CE06EA7C1F002DFB0051D8D8 /* TakePhotoViewController.swift */,
+				CE1D5F9E1F09AB540074AE0C /* ItemFriendBindingViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -134,6 +161,15 @@
 			name = Cells;
 			sourceTree = "<group>";
 		};
+		D411B52E1BFE40A93674E42D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				735FA26B39A8C70957BBCC57 /* Pods-DineOut.debug.xcconfig */,
+				182B96DD3CD34BE2709F86DF /* Pods-DineOut.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -141,9 +177,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7A01AF371EF733D200AC701C /* Build configuration list for PBXNativeTarget "DineOut" */;
 			buildPhases = (
+				45DBB770FD374B5A2658FF07 /* [CP] Check Pods Manifest.lock */,
 				7A01AF211EF733D200AC701C /* Sources */,
 				7A01AF221EF733D200AC701C /* Frameworks */,
 				7A01AF231EF733D200AC701C /* Resources */,
+				51E1D97FDD9416D212AFE9A9 /* [CP] Embed Pods Frameworks */,
+				2D8E61E4E4A01BB7DC130966 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -202,12 +241,64 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2D8E61E4E4A01BB7DC130966 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DineOut/Pods-DineOut-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		45DBB770FD374B5A2658FF07 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		51E1D97FDD9416D212AFE9A9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DineOut/Pods-DineOut-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		7A01AF211EF733D200AC701C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE1D5FA51F09AC680074AE0C /* ItemFriendBindingViewModel.swift in Sources */,
+				CE1D5F9F1F09AB540074AE0C /* ItemFriendBindingViewController.swift in Sources */,
 				7ACA119F1EF78833007ED13D /* Person.swift in Sources */,
+				CE1D5FA11F09AB980074AE0C /* ItemFriendBindingDataSourceDelegate.swift in Sources */,
+				CE1D5FA71F09BD060074AE0C /* Receipt.swift in Sources */,
 				7ACA119D1EF7678C007ED13D /* Activity.swift in Sources */,
 				CE06EA7B1EFF8F760051D8D8 /* AddRecipientsViewModel.swift in Sources */,
 				7A01AF2B1EF733D200AC701C /* ActivityViewController.swift in Sources */,
@@ -339,6 +430,7 @@
 		};
 		7A01AF381EF733D200AC701C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 735FA26B39A8C70957BBCC57 /* Pods-DineOut.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 3VM8YHF38X;
@@ -352,6 +444,7 @@
 		};
 		7A01AF391EF733D200AC701C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 182B96DD3CD34BE2709F86DF /* Pods-DineOut.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 3VM8YHF38X;

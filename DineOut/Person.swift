@@ -6,7 +6,7 @@
 //  Copyright © 2017 Zhang, Xiaolong. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 class Person: NSObject {
     var firstName: String

@@ -6,5 +6,7 @@ target 'DineOut' do
   use_frameworks!
 
   # Pods for DineOut
+  pod 'Alamofire', '~> 4.4'
+  pod 'AlamofireObjectMapper', '~> 4.0'
 
 end

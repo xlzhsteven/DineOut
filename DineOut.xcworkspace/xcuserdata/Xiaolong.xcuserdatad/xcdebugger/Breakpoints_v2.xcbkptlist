@@ -74,12 +74,12 @@
                   moduleName = "DineOut"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Xiaolong/Desktop/DineOut/DineOut/TakePhotoViewController.swift"
-                  timestampString = "520725607.014701"
+                  timestampString = "520813376.981932"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "324"
                   endingLineNumber = "324"
-                  offsetFromSymbolStart = "32">
+                  offsetFromSymbolStart = "20">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -89,12 +89,12 @@
                   moduleName = "DineOut"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Xiaolong/Desktop/DineOut/DineOut/TakePhotoViewController.swift"
-                  timestampString = "520725607.017837"
+                  timestampString = "520813376.985571"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "324"
                   endingLineNumber = "324"
-                  offsetFromSymbolStart = "168">
+                  offsetFromSymbolStart = "146">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -112,6 +112,70 @@
             startingLineNumber = "98"
             endingLineNumber = "98"
             landmarkName = "tableView(_:didSelectRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DineOut/ItemFriendBindingViewModel.swift"
+            timestampString = "520813311.700843"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "loadData()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DineOut.ItemFriendBindingViewModel.loadData () -&gt; ()"
+                  moduleName = "DineOut"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Xiaolong/Desktop/DineOut/DineOut/ItemFriendBindingViewModel.swift"
+                  timestampString = "520813376.997501"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "69">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DineOut.ItemFriendBindingViewModel.(loadData () -&gt; ()).(closure #1)"
+                  moduleName = "DineOut"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Xiaolong/Desktop/DineOut/DineOut/ItemFriendBindingViewModel.swift"
+                  timestampString = "520813376.99975"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "145">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DineOut/ItemFriendBindingViewModel.swift"
+            timestampString = "520813380.246447"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "loadData()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
