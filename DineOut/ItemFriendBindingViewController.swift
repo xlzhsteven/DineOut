@@ -9,10 +9,25 @@
 import UIKit
 
 class ItemFriendBindingViewController: UIViewController {
+    
+    @IBOutlet weak var itemListTableView: UITableView!
+    
+    var itemFriendBindingDataSourceDelegate: ItemFriendBindingDataSourceDelegate? {
+        didSet {
+            if let dataSourceDelegate = self.itemFriendBindingDataSourceDelegate {
+                self.itemListTableView.dataSource = dataSourceDelegate
+                self.itemListTableView.delegate = dataSourceDelegate
+                dataSourceDelegate.loadItemData()
+            }
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        itemFriendBindingDataSourceDelegate = ItemFriendBindingDataSourceDelegate(itemFriendBindingVC: self)
+        itemListTableView.estimatedRowHeight = 60
+        itemListTableView.rowHeight = UITableViewAutomaticDimension
+        
         // Do any additional setup after loading the view.
     }
 

@@ -51,6 +51,9 @@ class AddRecipientsViewController: UIViewController {
     
     func nextButtonClicked() {
         print("segueway to DineOut page")
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let itemFriendBindingViewController = storyBoard.instantiateViewController(withIdentifier: "itemFriendBinding") as! ItemFriendBindingViewController
+        self.show(itemFriendBindingViewController, sender: self)
     }
     
     var addRecipientsViewDataSource: AddRecipientsDataSourceDelegate? {

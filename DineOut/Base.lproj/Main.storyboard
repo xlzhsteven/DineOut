@@ -474,19 +474,20 @@
                                     <constraint firstAttribute="height" constant="40" id="r0S-tc-GbV"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="117" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="LAs-CR-w3a">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="117" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="LAs-CR-w3a">
                                 <rect key="frame" x="0.0" y="40" width="414" height="696"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.96913033719999997" green="0.96645122770000003" blue="0.96924108269999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="separatorColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="117" id="Mcq-Ed-QaG">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="117"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="itemCell" rowHeight="120" id="Mcq-Ed-QaG" customClass="ItemTableViewCell" customModule="DineOut" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Mcq-Ed-QaG" id="95e-n7-Cgv">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="117"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fpY-J7-YKu">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="100.66666666666667"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="103.66666666666667"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KgH-U8-sOQ">
                                                             <rect key="frame" x="24" y="12" width="366" height="20.333333333333336"/>
@@ -523,7 +524,11 @@
                                                 <constraint firstAttribute="bottom" secondItem="fpY-J7-YKu" secondAttribute="bottom" constant="16" id="wXP-nh-qMm"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="0.96913033719999997" green="0.96645122770000003" blue="0.96924108269999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <outlet property="itemNameLabel" destination="cw1-7c-Ovt" id="ltS-b2-SBg"/>
+                                            <outlet property="itemPriceLabel" destination="pwD-9d-CFi" id="4bt-Lb-yDW"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -539,6 +544,9 @@
                             <constraint firstItem="tre-HY-lPH" firstAttribute="top" secondItem="LAs-CR-w3a" secondAttribute="bottom" id="wnq-ME-q6b"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="itemListTableView" destination="LAs-CR-w3a" id="194-NC-kSo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dnr-1e-sjC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
