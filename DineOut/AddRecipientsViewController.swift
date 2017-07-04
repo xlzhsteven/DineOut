@@ -53,6 +53,7 @@ class AddRecipientsViewController: UIViewController {
         print("segueway to DineOut page")
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let itemFriendBindingViewController = storyBoard.instantiateViewController(withIdentifier: "itemFriendBinding") as! ItemFriendBindingViewController
+        itemFriendBindingViewController.selectedFriends = addRecipientsViewDataSource?.addRecipentsViewModel.selectedFriends
         self.show(itemFriendBindingViewController, sender: self)
     }
     

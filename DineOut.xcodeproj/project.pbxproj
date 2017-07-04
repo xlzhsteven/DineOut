@@ -27,6 +27,7 @@
 		CE1D5FA71F09BD060074AE0C /* Receipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D5FA61F09BD060074AE0C /* Receipt.swift */; };
 		CEACC7AA1F0B06BB00D34C06 /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEACC7A91F0B06BB00D34C06 /* ItemTableViewCell.swift */; };
 		CEC651161EFF6E0A00161D23 /* ActivityTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC651151EFF6E0A00161D23 /* ActivityTableCell.swift */; };
+		CED8DB921F0C35B10089542E /* FriendCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED8DB911F0C35B10089542E /* FriendCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		CE1D5FA61F09BD060074AE0C /* Receipt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Receipt.swift; sourceTree = "<group>"; };
 		CEACC7A91F0B06BB00D34C06 /* ItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
 		CEC651151EFF6E0A00161D23 /* ActivityTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityTableCell.swift; sourceTree = "<group>"; };
+		CED8DB911F0C35B10089542E /* FriendCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +146,7 @@
 			children = (
 				CEC651151EFF6E0A00161D23 /* ActivityTableCell.swift */,
 				CE06EA781EFF8C860051D8D8 /* FriendTableCell.swift */,
+				CED8DB911F0C35B10089542E /* FriendCollectionViewCell.swift */,
 				CEACC7A91F0B06BB00D34C06 /* ItemTableViewCell.swift */,
 			);
 			name = Cells;
@@ -222,6 +225,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CED8DB921F0C35B10089542E /* FriendCollectionViewCell.swift in Sources */,
 				CE1D5FA51F09AC680074AE0C /* ReceiptViewModel.swift in Sources */,
 				CE1D5F9F1F09AB540074AE0C /* ItemFriendBindingViewController.swift in Sources */,
 				7ACA119F1EF78833007ED13D /* Person.swift in Sources */,

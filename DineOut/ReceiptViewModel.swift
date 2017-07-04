@@ -21,7 +21,6 @@ class ReceiptViewModel: NSObject {
     func loadData(success: @escaping (Receipt) -> Void) {
         let URL = "https://universal-linking-xiaolong.herokuapp.com/sample.json"
         Alamofire.request(URL).responseObject { (response: DataResponse<Receipt>) in
-            
             if let resp = response.result.value {
                 success(resp)
             }

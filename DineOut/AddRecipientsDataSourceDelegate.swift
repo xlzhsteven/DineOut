@@ -16,7 +16,7 @@ class AddRecipientsDataSourceDelegate: NSObject {
     }
     
     fileprivate weak var addRecipentsViewController: AddRecipientsViewController?
-    fileprivate var addRecipentsViewModel: AddRecipientsViewModel
+    var addRecipentsViewModel: AddRecipientsViewModel
     fileprivate var searchState: SearchState = .searchDismissed
     
     init(addRecipentsVC: AddRecipientsViewController) {
@@ -52,7 +52,7 @@ extension AddRecipientsDataSourceDelegate: UITableViewDataSource {
         cell.userNameLabel.text = "@\(friend.userName)"
         cell.nameLabel.text = "\(friend.firstName) \(friend.lastName)"
         if let isSelected = addRecipentsViewModel.selectedFriends[friend.userName] {
-            cell.hasBeenSelected = isSelected
+            cell.hasBeenSelected = true
         } else {
             cell.hasBeenSelected = false
         }
@@ -98,7 +98,7 @@ extension AddRecipientsDataSourceDelegate: UITableViewDelegate {
             addRecipentsViewModel.selectedFriends.removeValue(forKey: person.userName)
         } else {
             // If element can't be found, add to the dictionary
-            addRecipentsViewModel.selectedFriends[person.userName] = true
+            addRecipentsViewModel.selectedFriends[person.userName] = person
         }
         self.addRecipentsViewController?.friendsListTableView.reloadData()
     }

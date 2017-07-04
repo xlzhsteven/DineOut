@@ -30,7 +30,7 @@ class ItemFriendBindingDataSourceDelegate: NSObject {
 }
 
 extension ItemFriendBindingDataSourceDelegate: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "itemCell", for: indexPath) as? ItemTableViewCell,
             let item = self.receipt?.items?[indexPath.row],
             let itemPrice = item.itemPrice {
@@ -52,5 +52,33 @@ extension ItemFriendBindingDataSourceDelegate: UITableViewDataSource {
 }
 
 extension ItemFriendBindingDataSourceDelegate: UITableViewDelegate {
-
+    
 }
+
+extension ItemFriendBindingDataSourceDelegate: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return (itemFriendBindingViewController?.selectedFriends?.count)!
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "friendCollectionCell", for: indexPath) as? FriendCollectionViewCell, let dict = itemFriendBindingViewController?.selectedFriends {
+            let friends = Array(dict.values)
+            let friend = friends[indexPath.row]
+            cell.userNameLabel.text = friend.userName
+            cell.firstLastNameLabel.text = "\(friend.firstName) \(friend.lastName)"
+            if let imageName = friend.profileImageName {
+                cell.profileImageView.image = UIImage(named: "\(imageName)")
+            }
+            return cell
+        } else {
+            return UICollectionViewCell()
+        }
+    }
+}
+
+extension ItemFriendBindingDataSourceDelegate: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("Item \(indexPath.row) is selected")
+    }
+}
+

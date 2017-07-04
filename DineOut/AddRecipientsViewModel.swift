@@ -12,7 +12,7 @@ class AddRecipientsViewModel: NSObject {
     var friends: [Person] = []
     var topPeople: [Person] = []
     var filteredResults: [Person] = []
-    var selectedFriends = [String: Bool]()
+    var selectedFriends = [String: Person]()
     
     override init() {
         super.init()

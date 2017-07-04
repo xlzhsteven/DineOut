@@ -475,7 +475,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="117" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="LAs-CR-w3a">
-                                <rect key="frame" x="0.0" y="40" width="414" height="696"/>
+                                <rect key="frame" x="0.0" y="40" width="414" height="576"/>
                                 <color key="backgroundColor" red="0.96913033719999997" green="0.96645122770000003" blue="0.96924108269999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="separatorColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -532,6 +532,64 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fWQ-Dr-8y9">
+                                <rect key="frame" x="0.0" y="616" width="414" height="120"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="nPb-20-gOI"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="Bpf-OC-GoA">
+                                    <size key="itemSize" width="80" height="120"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="friendCollectionCell" id="rMQ-hX-DKb" customClass="FriendCollectionViewCell" customModule="DineOut" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="80" height="120"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="80" height="120"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user_xiaolongzhang" translatesAutoresizingMaskIntoConstraints="NO" id="Xuy-vt-7Hf">
+                                                    <rect key="frame" x="5" y="8" width="70" height="70"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="70" id="3td-ym-DKB"/>
+                                                        <constraint firstAttribute="width" secondItem="Xuy-vt-7Hf" secondAttribute="height" multiplier="1:1" id="maR-DZ-yRu"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First Name Last Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cil-he-Pqx">
+                                                    <rect key="frame" x="-0.3333333333333357" y="83" width="80.666666666666657" height="10"/>
+                                                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="8"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="userName" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="doq-Ya-rTh">
+                                                    <rect key="frame" x="26" y="94.333333333333329" width="28" height="7"/>
+                                                    <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="6"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="Xuy-vt-7Hf" firstAttribute="centerX" secondItem="rMQ-hX-DKb" secondAttribute="centerX" id="5gy-ty-vjt"/>
+                                            <constraint firstItem="doq-Ya-rTh" firstAttribute="centerX" secondItem="rMQ-hX-DKb" secondAttribute="centerX" id="Lf1-Ar-NK0"/>
+                                            <constraint firstItem="Xuy-vt-7Hf" firstAttribute="top" secondItem="rMQ-hX-DKb" secondAttribute="top" constant="8" id="lqQ-g1-UvH"/>
+                                            <constraint firstItem="doq-Ya-rTh" firstAttribute="top" secondItem="cil-he-Pqx" secondAttribute="bottom" constant="2" id="pZE-O8-fYJ"/>
+                                            <constraint firstItem="cil-he-Pqx" firstAttribute="top" secondItem="Xuy-vt-7Hf" secondAttribute="bottom" constant="5" id="rMo-eR-EP2"/>
+                                            <constraint firstItem="cil-he-Pqx" firstAttribute="centerX" secondItem="rMQ-hX-DKb" secondAttribute="centerX" id="viI-FQ-b9m"/>
+                                        </constraints>
+                                        <size key="customSize" width="80" height="120"/>
+                                        <connections>
+                                            <outlet property="firstLastNameLabel" destination="cil-he-Pqx" id="BIw-Po-hrO"/>
+                                            <outlet property="profileImageView" destination="Xuy-vt-7Hf" id="HBK-FE-aNt"/>
+                                            <outlet property="userNameLabel" destination="doq-Ya-rTh" id="rFa-0s-A4e"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -540,17 +598,21 @@
                             <constraint firstAttribute="trailing" secondItem="qy1-LB-PaW" secondAttribute="trailing" id="R9S-6R-i2U"/>
                             <constraint firstItem="qy1-LB-PaW" firstAttribute="leading" secondItem="0wL-CR-IDk" secondAttribute="leading" id="Skd-jS-jbs"/>
                             <constraint firstItem="LAs-CR-w3a" firstAttribute="leading" secondItem="0wL-CR-IDk" secondAttribute="leading" id="Ugc-09-gM0"/>
+                            <constraint firstItem="fWQ-Dr-8y9" firstAttribute="leading" secondItem="0wL-CR-IDk" secondAttribute="leading" id="bWl-jL-CY8"/>
+                            <constraint firstItem="fWQ-Dr-8y9" firstAttribute="top" secondItem="LAs-CR-w3a" secondAttribute="bottom" id="das-Gy-llb"/>
                             <constraint firstItem="qy1-LB-PaW" firstAttribute="top" secondItem="0wL-CR-IDk" secondAttribute="top" id="efj-aR-giO"/>
-                            <constraint firstItem="tre-HY-lPH" firstAttribute="top" secondItem="LAs-CR-w3a" secondAttribute="bottom" id="wnq-ME-q6b"/>
+                            <constraint firstAttribute="trailing" secondItem="fWQ-Dr-8y9" secondAttribute="trailing" id="ndl-0E-S4S"/>
+                            <constraint firstItem="tre-HY-lPH" firstAttribute="top" secondItem="fWQ-Dr-8y9" secondAttribute="bottom" id="t0M-kb-PmU"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="friendListCollectionView" destination="fWQ-Dr-8y9" id="szx-Vp-wwU"/>
                         <outlet property="itemListTableView" destination="LAs-CR-w3a" id="194-NC-kSo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dnr-1e-sjC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2624.6376811594205" y="193.20652173913044"/>
+            <point key="canvasLocation" x="2624.6376811594205" y="192.39130434782609"/>
         </scene>
     </scenes>
     <resources>
@@ -563,6 +625,7 @@
         <image name="ic_people" width="16" height="16"/>
         <image name="ic_peopleb" width="24" height="18"/>
         <image name="ic_personb" width="16" height="18"/>
+        <image name="user_xiaolongzhang" width="60" height="60"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="xUH-Gs-TaI"/>

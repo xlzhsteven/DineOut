@@ -11,12 +11,16 @@ import UIKit
 class ItemFriendBindingViewController: UIViewController {
     
     @IBOutlet weak var itemListTableView: UITableView!
+    @IBOutlet weak var friendListCollectionView: UICollectionView!
+    var selectedFriends: [String: Person]?
     
     var itemFriendBindingDataSourceDelegate: ItemFriendBindingDataSourceDelegate? {
         didSet {
             if let dataSourceDelegate = self.itemFriendBindingDataSourceDelegate {
                 self.itemListTableView.dataSource = dataSourceDelegate
                 self.itemListTableView.delegate = dataSourceDelegate
+                self.friendListCollectionView.dataSource = dataSourceDelegate as? UICollectionViewDataSource
+                self.friendListCollectionView.delegate = dataSourceDelegate as? UICollectionViewDelegate
                 dataSourceDelegate.loadItemData()
             }
         }
