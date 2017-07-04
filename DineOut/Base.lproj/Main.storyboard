@@ -539,35 +539,35 @@
                                     <constraint firstAttribute="height" constant="120" id="nPb-20-gOI"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="Bpf-OC-GoA">
-                                    <size key="itemSize" width="80" height="120"/>
+                                    <size key="itemSize" width="100" height="120"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="friendCollectionCell" id="rMQ-hX-DKb" customClass="FriendCollectionViewCell" customModule="DineOut" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="80" height="120"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="120"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="80" height="120"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="100" height="120"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user_xiaolongzhang" translatesAutoresizingMaskIntoConstraints="NO" id="Xuy-vt-7Hf">
-                                                    <rect key="frame" x="5" y="8" width="70" height="70"/>
+                                                    <rect key="frame" x="15" y="8" width="70" height="70"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="70" id="3td-ym-DKB"/>
                                                         <constraint firstAttribute="width" secondItem="Xuy-vt-7Hf" secondAttribute="height" multiplier="1:1" id="maR-DZ-yRu"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First Name Last Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cil-he-Pqx">
-                                                    <rect key="frame" x="-0.3333333333333357" y="83" width="80.666666666666657" height="10"/>
-                                                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="8"/>
+                                                    <rect key="frame" x="0.0" y="83" width="100" height="14"/>
+                                                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="userName" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="doq-Ya-rTh">
-                                                    <rect key="frame" x="26" y="94.333333333333329" width="28" height="7"/>
-                                                    <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="6"/>
+                                                    <rect key="frame" x="31.666666666666671" y="98.333333333333329" width="37" height="9.3333333333333428"/>
+                                                    <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="8"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -576,12 +576,14 @@
                                         <constraints>
                                             <constraint firstItem="Xuy-vt-7Hf" firstAttribute="centerX" secondItem="rMQ-hX-DKb" secondAttribute="centerX" id="5gy-ty-vjt"/>
                                             <constraint firstItem="doq-Ya-rTh" firstAttribute="centerX" secondItem="rMQ-hX-DKb" secondAttribute="centerX" id="Lf1-Ar-NK0"/>
+                                            <constraint firstItem="cil-he-Pqx" firstAttribute="leading" secondItem="rMQ-hX-DKb" secondAttribute="leading" id="QCV-fd-1BZ"/>
                                             <constraint firstItem="Xuy-vt-7Hf" firstAttribute="top" secondItem="rMQ-hX-DKb" secondAttribute="top" constant="8" id="lqQ-g1-UvH"/>
                                             <constraint firstItem="doq-Ya-rTh" firstAttribute="top" secondItem="cil-he-Pqx" secondAttribute="bottom" constant="2" id="pZE-O8-fYJ"/>
                                             <constraint firstItem="cil-he-Pqx" firstAttribute="top" secondItem="Xuy-vt-7Hf" secondAttribute="bottom" constant="5" id="rMo-eR-EP2"/>
                                             <constraint firstItem="cil-he-Pqx" firstAttribute="centerX" secondItem="rMQ-hX-DKb" secondAttribute="centerX" id="viI-FQ-b9m"/>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="cil-he-Pqx" secondAttribute="trailing" id="zuf-ud-YHo"/>
                                         </constraints>
-                                        <size key="customSize" width="80" height="120"/>
+                                        <size key="customSize" width="100" height="120"/>
                                         <connections>
                                             <outlet property="firstLastNameLabel" destination="cil-he-Pqx" id="BIw-Po-hrO"/>
                                             <outlet property="profileImageView" destination="Xuy-vt-7Hf" id="HBK-FE-aNt"/>
