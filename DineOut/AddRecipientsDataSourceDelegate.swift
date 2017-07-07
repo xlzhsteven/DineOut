@@ -41,6 +41,8 @@ class AddRecipientsDataSourceDelegate: NSObject {
 extension AddRecipientsDataSourceDelegate: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let friend: Person
+        let transactionMethod = addRecipentsViewController?.transactionMethod
+      
         if inSearchMode() {
             friend = addRecipentsViewModel.filteredResults[indexPath.row]
         } else {
@@ -51,10 +53,14 @@ extension AddRecipientsDataSourceDelegate: UITableViewDataSource {
         cell.profileImageView.image = UIImage(named: friend.profileImageName!)
         cell.userNameLabel.text = "@\(friend.userName)"
         cell.nameLabel.text = "\(friend.firstName) \(friend.lastName)"
-        if let isSelected = addRecipentsViewModel.selectedFriends[friend.userName] {
+      
+        if let _ = addRecipentsViewModel.selectedFriends[friend.userName] {
             cell.hasBeenSelected = true
         } else {
             cell.hasBeenSelected = false
+        }
+        if transactionMethod! == .normal {
+          cell.infoIconImage.image = UIImage(named: "icInfoblack20")?.withRenderingMode(.alwaysTemplate)
         }
         cell.selectionStyle = .none
         
@@ -109,28 +115,35 @@ extension AddRecipientsDataSourceDelegate: UITableViewDelegate {
 }
 
 extension AddRecipientsDataSourceDelegate: UISearchBarDelegate {
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        searchState = .searchActivated
+  func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+    searchState = .searchActivated
+  }
+  
+  func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+    print("text did change to \(searchText)")
+    if searchText.isEmpty {
+      searchState = .searchDismissed
     }
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print("text did change to \(searchText)")
-        filter(from: addRecipentsViewModel.friends, with: searchText)
-        addRecipentsViewController?.friendsListTableView.delegate = nil
-        addRecipentsViewController?.friendsListTableView.reloadData()
-        addRecipentsViewController?.friendsListTableView.delegate = self
-    }
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        searchState = .searchDismissed
-        searchBar.resignFirstResponder()
-        searchBar.text = ""
-        addRecipentsViewController?.friendsListTableView.reloadData()
-    }
-    
-//    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-//        searchState = .searchDismissed
-//        searchBar.text = ""
-//        addRecipentsViewController?.friendsListTableView.reloadData()
-//    }
+    filter(from: addRecipentsViewModel.friends, with: searchText)
+    addRecipentsViewController?.friendsListTableView.delegate = nil
+    addRecipentsViewController?.friendsListTableView.reloadData()
+    addRecipentsViewController?.friendsListTableView.delegate = self
+  }
+  
+  func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+    searchState = .searchDismissed
+    searchBar.resignFirstResponder()
+    searchBar.text = ""
+    addRecipentsViewController?.friendsListTableView.reloadData()
+  }
+  
+  func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+    print("did end")
+  }
+  
+  //    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+  //        searchState = .searchDismissed
+  //        searchBar.text = ""
+  //        addRecipentsViewController?.friendsListTableView.reloadData()
+  //    }
 }

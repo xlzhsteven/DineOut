@@ -17,6 +17,7 @@ class AddRecipientsViewModel: NSObject {
     override init() {
         super.init()
         loadPeople()
+        selectedFriends["xiaolongZhang"] = Person(firstName: "Me", lastName: "", userName: "xiaolongZhang", profileImageName: "user_xiaolongzhang")
     }
     
     func loadPeople() {
@@ -28,7 +29,6 @@ class AddRecipientsViewModel: NSObject {
         friends.append(Person(firstName: "Sophie", lastName: "Lewis", userName: "sophieLewis", profileImageName: "user_sophielewis"))
         friends.append(Person(firstName: "Suryatej", lastName: "Gundavelli", userName: "suryatejGundavelli", profileImageName: "user_suryatejgundavelli"))
         friends.append(Person(firstName: "Vanessa", lastName: "Hudson", userName: "vanessaHudson", profileImageName: "user_vanessahudson"))
-        friends.append(Person(firstName: "Xiaolong", lastName: "Zhang", userName: "xiaolongZhang", profileImageName: "user_xiaolongzhang"))
         
         topPeople.append(Person(firstName: "Kevin", lastName: "Ward", userName: "kevinWard", profileImageName: "user_kevinward"))
         topPeople.append(Person(firstName: "Justin", lastName: "Kuo", userName: "justinKuo", profileImageName: "user_justinkuo"))

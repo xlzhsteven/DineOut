@@ -62,7 +62,7 @@ extension ItemFriendBindingDataSourceDelegate: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "friendCollectionCell", for: indexPath) as? FriendCollectionViewCell, let dict = itemFriendBindingViewController?.selectedFriends {
-            let friends = Array(dict.values)
+            let friends = getFriendList(Array(dict.values))
             let friend = friends[indexPath.row]
             cell.userNameLabel.text = friend.userName
             cell.firstLastNameLabel.text = "\(friend.firstName) \(friend.lastName)"
@@ -74,6 +74,19 @@ extension ItemFriendBindingDataSourceDelegate: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
     }
+  
+  func getFriendList(_ friends: [Person]) -> [Person] {
+    // Make sure Me always shows up in the first index
+    var returnResult = friends
+    let index = returnResult.index(where: { (item) -> Bool in
+      item.firstName == "Me"
+    })
+    if let index = index, index != 0 {
+      swap(&returnResult[index], &returnResult[0])
+      return returnResult
+    }
+    return friends
+  }
 }
 
 extension ItemFriendBindingDataSourceDelegate: UICollectionViewDelegate {

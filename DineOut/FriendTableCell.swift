@@ -39,7 +39,7 @@ class FriendTableCell: UITableViewCell {
         if hasBeenSelected {
             setInfoIcon(withImageName: "ic_checkmark", withColor: iconColor)
         } else {
-            setInfoIcon(withImageName: "icInfoblack20", withColor: iconColor)
+            infoIconImage.image = nil
         }
     }
 }
