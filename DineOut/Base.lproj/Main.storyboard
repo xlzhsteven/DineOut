@@ -512,7 +512,7 @@
                                                         <constraint firstItem="KgH-U8-sOQ" firstAttribute="leading" secondItem="fpY-J7-YKu" secondAttribute="leading" constant="24" id="4PG-2z-NzH"/>
                                                         <constraint firstItem="KgH-U8-sOQ" firstAttribute="top" secondItem="fpY-J7-YKu" secondAttribute="top" constant="12" id="WEx-2j-cCk"/>
                                                         <constraint firstAttribute="trailing" secondItem="KgH-U8-sOQ" secondAttribute="trailing" constant="24" id="cWk-aE-PCg"/>
-                                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="KgH-U8-sOQ" secondAttribute="bottom" constant="30" id="rSy-V3-hf2"/>
+                                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="KgH-U8-sOQ" secondAttribute="bottom" constant="40" id="rSy-V3-hf2"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -608,6 +608,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="containerView" destination="0wL-CR-IDk" id="GvV-6v-FK6"/>
                         <outlet property="friendListCollectionView" destination="fWQ-Dr-8y9" id="szx-Vp-wwU"/>
                         <outlet property="itemListTableView" destination="LAs-CR-w3a" id="194-NC-kSo"/>
                     </connections>

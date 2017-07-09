@@ -14,7 +14,8 @@ class FriendCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var firstLastNameLabel: UILabel!
     @IBOutlet weak var userNameLabel: UILabel!
-    
+    var friend: Person?
+  
     override func awakeFromNib() {
         profileImageView.layer.shadowColor = UIColor.darkGray.cgColor
         profileImageView.layer.shadowOffset = CGSize(width: 0, height: 2)

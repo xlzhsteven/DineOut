@@ -86,9 +86,9 @@
 		7A01AF271EF733D200AC701C /* DineOut */ = {
 			isa = PBXGroup;
 			children = (
+				7A01AF281EF733D200AC701C /* AppDelegate.swift */,
 				7ACA119B1EF7677B007ED13D /* Models */,
 				7ACA112A1EF76476007ED13D /* ViewModels */,
-				7A01AF281EF733D200AC701C /* AppDelegate.swift */,
 				CE06EA731EFF82B50051D8D8 /* ViewControllers */,
 				CEC651141EFF6DED00161D23 /* Cells */,
 				7ACA11281EF76454007ED13D /* DataSources */,

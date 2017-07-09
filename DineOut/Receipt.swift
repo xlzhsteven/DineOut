@@ -30,8 +30,15 @@ class Receipt: Mappable {
 class Item: Mappable {
     var itemName: String?
     var itemPrice: Double?
-    
+    var peopleAssociatedWithThisItem: [Person]?
+  
     required init?(map: Map) {}
+  
+    init(_ itemName: String, _ itemPrice: Double, _ peopleAssociatedWithThisItem: [Person]) {
+      self.itemName = itemName
+      self.itemPrice = itemPrice
+      self.peopleAssociatedWithThisItem = peopleAssociatedWithThisItem
+    }
     
     func mapping(map: Map) {
         itemName <- map["itemName"]

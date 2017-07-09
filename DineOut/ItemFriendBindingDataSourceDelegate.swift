@@ -34,6 +34,7 @@ extension ItemFriendBindingDataSourceDelegate: UITableViewDataSource {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "itemCell", for: indexPath) as? ItemTableViewCell,
             let item = self.receipt?.items?[indexPath.row],
             let itemPrice = item.itemPrice {
+            cell.selectionStyle = .none
             cell.itemNameLabel.text = item.itemName
             cell.itemPriceLabel.text = String(format: "$%.02f", locale: Locale.current, arguments: [itemPrice])
             return cell
@@ -64,6 +65,7 @@ extension ItemFriendBindingDataSourceDelegate: UICollectionViewDataSource {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "friendCollectionCell", for: indexPath) as? FriendCollectionViewCell, let dict = itemFriendBindingViewController?.selectedFriends {
             let friends = getFriendList(Array(dict.values))
             let friend = friends[indexPath.row]
+            cell.friend = friend
             cell.userNameLabel.text = friend.userName
             cell.firstLastNameLabel.text = "\(friend.firstName) \(friend.lastName)"
             if let imageName = friend.profileImageName {
