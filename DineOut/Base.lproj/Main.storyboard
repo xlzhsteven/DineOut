@@ -49,7 +49,7 @@
                                         <rect key="frame" x="0.0" y="28" width="414" height="110"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cLQ-V1-ayO" id="bRQ-R0-v5O">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="110"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="109.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ta1-BB-cyO">
@@ -244,7 +244,7 @@
                         <viewControllerLayoutGuide type="bottom" id="QTm-2W-TxB"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="MMr-Im-9Dj">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xqG-PF-r3f">
@@ -265,18 +265,18 @@
                                 </constraints>
                             </view>
                             <searchBar contentMode="redraw" placeholder="To: Name, @username" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4US-af-287">
-                                <rect key="frame" x="0.0" y="20" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="79" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DuQ-9z-7yA">
-                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="584"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="friendCell" rowHeight="79" id="vZb-SK-jD8" customClass="FriendTableCell" customModule="DineOut" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="79"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vZb-SK-jD8" id="gh0-XV-87d">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="79"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="78.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wKl-uM-Hmg">
@@ -374,18 +374,18 @@
                         <viewControllerLayoutGuide type="bottom" id="q0A-W6-GPf"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="E5q-xQ-y2C">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wcq-9N-iNa">
-                                <rect key="frame" x="0.0" y="60" width="414" height="716"/>
+                                <rect key="frame" x="0.0" y="40" width="414" height="628"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1ec-wG-XBN">
-                                <rect key="frame" x="0.0" y="20" width="414" height="40"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Take a picture of the receipt" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nRK-bv-Mwm">
-                                        <rect key="frame" x="115" y="11.66666666666667" width="184.66666666666669" height="17.333333333333329"/>
+                                        <rect key="frame" x="115" y="11.666666666666668" width="184.66666666666669" height="17.333333333333336"/>
                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -399,7 +399,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Toj-Xy-nPR">
-                                <rect key="frame" x="0.0" y="636" width="414" height="100"/>
+                                <rect key="frame" x="0.0" y="528" width="414" height="100"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WB8-xH-4FS">
                                         <rect key="frame" x="167" y="10.666666666666629" width="80" height="80"/>
@@ -410,7 +410,6 @@
                                         <state key="normal" image="camera_button"/>
                                         <connections>
                                             <action selector="capturePhoto:" destination="yfD-bz-CsO" eventType="touchUpInside" id="ySI-kw-9cN"/>
-                                            <segue destination="4kQ-Qp-nMg" kind="show" id="xUH-Gs-TaI"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -629,7 +628,4 @@
         <image name="ic_personb" width="16" height="18"/>
         <image name="user_xiaolongzhang" width="60" height="60"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="xUH-Gs-TaI"/>
-    </inferredMetricsTieBreakers>
 </document>

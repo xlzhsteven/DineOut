@@ -308,6 +308,11 @@ class TakePhotoViewController: UIViewController {
             (sampleBuffer: CMSampleBuffer!, error: Error!) -> Void in
             if sampleBuffer != nil {
                 let imageData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(sampleBuffer)
+                let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                let addRecipientsViewController = storyBoard.instantiateViewController(withIdentifier: "selectFriend") as! AddRecipientsViewController
+                addRecipientsViewController.base64ImageString = (imageData?.base64EncodedString(options: .lineLength64Characters))!
+                addRecipientsViewController.transactionMethod = .splitBill
+                self.show(addRecipientsViewController, sender: self)
                 let image = UIImage(data: imageData!)
                 self.savePhotoToLibrary(image!)
                 
@@ -321,8 +326,8 @@ class TakePhotoViewController: UIViewController {
     }
    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let viewController = segue.destination as? AddRecipientsViewController {
-            viewController.transactionMethod = .splitBill
-        }
+//        if let viewController = segue.destination as? AddRecipientsViewController {
+//            viewController.transactionMethod = .splitBill
+//        }
     }
 }

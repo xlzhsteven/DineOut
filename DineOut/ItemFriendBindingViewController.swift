@@ -15,7 +15,9 @@ class ItemFriendBindingViewController: UIViewController {
     @IBOutlet weak var friendListCollectionView: UICollectionView!
     @IBOutlet var containerView: UIView!
     var selectedFriends: [String: Person]?
-    
+    var receipt: Receipt?
+    var itemFriendsMap: [String: [Person]] = [:]
+  
     var itemFriendBindingDataSourceDelegate: ItemFriendBindingDataSourceDelegate? {
         didSet {
             if let dataSourceDelegate = self.itemFriendBindingDataSourceDelegate {
@@ -25,9 +27,17 @@ class ItemFriendBindingViewController: UIViewController {
                 self.friendListCollectionView.addGestureRecognizer(longpress)
                 self.friendListCollectionView.dataSource = dataSourceDelegate
                 self.friendListCollectionView.delegate = dataSourceDelegate
-                dataSourceDelegate.loadItemData()
+                dataSourceDelegate.loadItemData(receipt!)
+                initItemFriendsMapWithKeys(receipt!)
             }
         }
+    }
+  
+    func initItemFriendsMapWithKeys(_ receipt: Receipt) {
+      let items = receipt.items
+      for item in items! {
+        itemFriendsMap[item.itemName!] = []
+      }
     }
   
     func longPressGestureRecognized(gestureRecognizer: UIGestureRecognizer) {
@@ -38,14 +48,14 @@ class ItemFriendBindingViewController: UIViewController {
       let locationInTableView = longPress.location(in: itemListTableView)
       let locationInCollectionView = longPress.location(in: friendListCollectionView)
       
-      print("table view: x:\(locationInTableView.x), y: \(locationInTableView.y)")
-      print("collection view: x:\(locationInCollectionView.x), y: \(locationInCollectionView.y)")
+//      print("table view: x:\(locationInTableView.x), y: \(locationInTableView.y)")
+//      print("collection view: x:\(locationInCollectionView.x), y: \(locationInCollectionView.y)")
       
       // Which index is it in relate to both table and collection view
-      var tableIndexPath = itemListTableView.indexPathForRow(at: locationInTableView)
-      var collectionIndexPath = friendListCollectionView.indexPathForItem(at: locationInCollectionView)
-      print("table indexpath is \(String(describing: tableIndexPath?.row))")
-      print("collection indexpath is \(String(describing: collectionIndexPath?.row))")
+      let tableIndexPath = itemListTableView.indexPathForRow(at: locationInTableView)
+      let collectionIndexPath = friendListCollectionView.indexPathForItem(at: locationInCollectionView)
+//      print("table indexpath is \(String(describing: tableIndexPath?.row))")
+//      print("collection indexpath is \(String(describing: collectionIndexPath?.row))")
       
       struct My {
         static var cellSnapshot : UIView? = nil
@@ -138,13 +148,14 @@ class ItemFriendBindingViewController: UIViewController {
   func addFriendToItem(_ itemCell: ItemTableViewCell, _ friendCell: FriendCollectionViewCell) {
     if !itemCell.listOfFriends.contains(friendCell.friend!) {
       itemCell.listOfFriends.append(friendCell.friend!)
+      itemFriendsMap[itemCell.itemNameLabel.text!]?.append(friendCell.friend!)
     }
     var index = 0
     for friend in itemCell.listOfFriends {
       let image = UIImage(named: friend.profileImageName!)
       let imageView = UIImageView(image: image)
       let xPosition = 24 + 40 * index
-      imageView.frame = CGRect(x: xPosition, y: 35, width: 30, height: 30)
+      imageView.frame = CGRect(x: xPosition, y: 36, width: 30, height: 30)
       itemCell.addSubview(imageView)
       index += 1
     }
@@ -175,9 +186,32 @@ class ItemFriendBindingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupNextButton()
         itemFriendBindingDataSourceDelegate = ItemFriendBindingDataSourceDelegate(itemFriendBindingVC: self)
         itemListTableView.estimatedRowHeight = 60
         itemListTableView.rowHeight = UITableViewAutomaticDimension
+    }
+  
+    func setupNextButton() {
+      navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .plain, target: self, action: #selector(nextButtonClicked))
+    }
+  
+    func nextButtonClicked() {
+      // Validating to make sure all the items are taken
+      validateData()
+      // TODO: navigate to the next view controller to show summary before spliting bill
+    }
+  
+    func validateData() {
+      for (_, friends) in itemFriendsMap {
+        if friends.isEmpty {
+          let alertController = UIAlertController(title: "Something is missing", message:
+            "Please make sure all the items are binded with at least one friend", preferredStyle: .alert)
+          alertController.addAction(UIAlertAction(title: "Dismiss", style: .default,handler: nil))
+          
+          self.present(alertController, animated: true, completion: nil)
+        }
+      }
     }
 
     override func didReceiveMemoryWarning() {

@@ -21,11 +21,9 @@ class ItemFriendBindingDataSourceDelegate: NSObject {
         self.receiptViewModel = ReceiptViewModel()
     }
     
-    func loadItemData() {
-        self.receiptViewModel?.loadData(success: { (receiptResponse) in
-            self.receipt = receiptResponse
-            self.itemFriendBindingViewController?.itemListTableView.reloadData()
-        })
+    func loadItemData(_ receipt: Receipt) {
+        self.receipt = receipt
+        itemFriendBindingViewController?.itemListTableView.reloadData()
     }
 }
 

@@ -16,11 +16,13 @@ class AddRecipientsViewController: UIViewController {
     }
     
     var transactionMethod: TransactionMethod = .normal
+    var base64ImageString: String? 
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var friendsListTableView: UITableView!
     @IBOutlet weak var selectAllFriendsUiView: UIView!
     @IBOutlet weak var searchBarTopConstraint: NSLayoutConstraint!
+    var receipt: Receipt?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +35,14 @@ class AddRecipientsViewController: UIViewController {
         }
     }
     
+    func loadItemData() {
+        let receiptViewModel = ReceiptViewModel()
+        receiptViewModel.loadData(success: { (receiptResponse) in
+            self.receipt = receiptResponse
+            self.setupNextButton()
+        })
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
@@ -42,11 +52,23 @@ class AddRecipientsViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    func setupNextButton() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .plain, target: self, action: #selector(nextButtonClicked))
+    }
+    
     func showSelectAllFriendsUIView() {
         selectAllFriendsUiView.isHidden = false
         searchBarTopConstraint.constant = selectAllFriendsUiView.bounds.height
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .plain, target: self, action: #selector(nextButtonClicked))
+        spinnerNavigationRightBarItem()
+        loadItemData()
         navigationItem.title = "Dine Out"
+    }
+    
+    func spinnerNavigationRightBarItem() {
+        let uiBusy = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+        uiBusy.hidesWhenStopped = true
+        uiBusy.startAnimating()
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: uiBusy)
     }
     
     func nextButtonClicked() {
@@ -54,6 +76,7 @@ class AddRecipientsViewController: UIViewController {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let itemFriendBindingViewController = storyBoard.instantiateViewController(withIdentifier: "itemFriendBinding") as! ItemFriendBindingViewController
         itemFriendBindingViewController.selectedFriends = addRecipientsViewDataSource?.addRecipentsViewModel.selectedFriends
+        itemFriendBindingViewController.receipt = receipt
         self.show(itemFriendBindingViewController, sender: self)
     }
     
