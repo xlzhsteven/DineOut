@@ -17,6 +17,7 @@ class ItemFriendBindingViewController: UIViewController {
     var selectedFriends: [String: Person]?
     var receipt: Receipt?
     var itemFriendsMap: [String: [Person]] = [:]
+    var friendItemsMap: [String: [Item]] = [:]
   
     var itemFriendBindingDataSourceDelegate: ItemFriendBindingDataSourceDelegate? {
         didSet {
@@ -29,6 +30,7 @@ class ItemFriendBindingViewController: UIViewController {
                 self.friendListCollectionView.delegate = dataSourceDelegate
                 dataSourceDelegate.loadItemData(receipt!)
                 initItemFriendsMapWithKeys(receipt!)
+                initFriendItemsMapWithKeys(Array(selectedFriends!.values))
             }
         }
     }
@@ -37,6 +39,12 @@ class ItemFriendBindingViewController: UIViewController {
       let items = receipt.items
       for item in items! {
         itemFriendsMap[item.itemName!] = []
+      }
+    }
+  
+    func initFriendItemsMapWithKeys(_ selectedFriends: [Person]) {
+      for friend in selectedFriends {
+        friendItemsMap[friend.userName] = []
       }
     }
   
@@ -149,6 +157,7 @@ class ItemFriendBindingViewController: UIViewController {
     if !itemCell.listOfFriends.contains(friendCell.friend!) {
       itemCell.listOfFriends.append(friendCell.friend!)
       itemFriendsMap[itemCell.itemNameLabel.text!]?.append(friendCell.friend!)
+      friendItemsMap[(friendCell.friend?.userName)!]?.append(itemCell.item!)
     }
     var index = 0
     for friend in itemCell.listOfFriends {
@@ -198,11 +207,17 @@ class ItemFriendBindingViewController: UIViewController {
   
     func nextButtonClicked() {
       // Validating to make sure all the items are taken
-      validateData()
-      // TODO: navigate to the next view controller to show summary before spliting bill
+      if validateData() {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let reviewViewController = storyBoard.instantiateViewController(withIdentifier: "reviewPage") as! ReviewViewController
+        reviewViewController.itemFriendsMap = itemFriendsMap
+        reviewViewController.friendItemsMap = friendItemsMap
+        reviewViewController.selectedFriends = selectedFriends
+        self.show(reviewViewController, sender: self)
+      }
     }
   
-    func validateData() {
+    func validateData() -> Bool {
       for (_, friends) in itemFriendsMap {
         if friends.isEmpty {
           let alertController = UIAlertController(title: "Something is missing", message:
@@ -210,8 +225,10 @@ class ItemFriendBindingViewController: UIViewController {
           alertController.addAction(UIAlertAction(title: "Dismiss", style: .default,handler: nil))
           
           self.present(alertController, animated: true, completion: nil)
+          return false
         }
       }
+      return true
     }
 
     override func didReceiveMemoryWarning() {

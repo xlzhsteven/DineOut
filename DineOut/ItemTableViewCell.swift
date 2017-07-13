@@ -12,6 +12,7 @@ class ItemTableViewCell: UITableViewCell {
     @IBOutlet weak var itemNameLabel: UILabel!
     @IBOutlet weak var itemPriceLabel: UILabel!
     var listOfFriends: [Person] = []
+    var item: Item?
 
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -37,15 +37,11 @@ class AddRecipientsViewController: UIViewController {
     
     func loadItemData() {
         let receiptViewModel = ReceiptViewModel()
-        receiptViewModel.loadData(success: { (receiptResponse) in
-            self.receipt = receiptResponse
-            self.setupNextButton()
-        })
       
-//        receiptViewModel.loadData(base64ImageString!, success: { (receiptResponse) in
-//          self.receipt = receiptResponse
-//          self.setupNextButton()
-//        })
+        receiptViewModel.loadData(base64ImageString!, success: { (receiptResponse) in
+          self.receipt = receiptResponse
+          self.setupNextButton()
+        })
     }
   
     override func viewWillAppear(_ animated: Bool) {

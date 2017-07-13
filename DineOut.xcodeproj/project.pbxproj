@@ -12,6 +12,11 @@
 		7A01AF2E1EF733D200AC701C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A01AF2C1EF733D200AC701C /* Main.storyboard */; };
 		7A01AF301EF733D200AC701C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A01AF2F1EF733D200AC701C /* Assets.xcassets */; };
 		7A01AF331EF733D200AC701C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A01AF311EF733D200AC701C /* LaunchScreen.storyboard */; };
+		7A33990C1F170E93009B07AA /* ReviewViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A33990B1F170E93009B07AA /* ReviewViewDataSource.swift */; };
+		7A33990E1F1715C7009B07AA /* FriendPaymentDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A33990D1F1715C7009B07AA /* FriendPaymentDetailViewModel.swift */; };
+		7A3399101F1733CC009B07AA /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A33990F1F1733CC009B07AA /* Helper.swift */; };
+		7A3DACB51F16787500A2AB14 /* FriendItemsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3DACB41F16787500A2AB14 /* FriendItemsTableViewCell.swift */; };
+		7A3DACB71F16790100A2AB14 /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3DACB61F16790100A2AB14 /* ReviewViewController.swift */; };
 		7ACA11981EF76700007ED13D /* ActivityDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACA11971EF76700007ED13D /* ActivityDataSource.swift */; };
 		7ACA119A1EF76763007ED13D /* ActivityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACA11991EF76763007ED13D /* ActivityViewModel.swift */; };
 		7ACA119D1EF7678C007ED13D /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACA119C1EF7678C007ED13D /* Activity.swift */; };
@@ -38,6 +43,11 @@
 		7A01AF2F1EF733D200AC701C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7A01AF321EF733D200AC701C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7A01AF341EF733D200AC701C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7A33990B1F170E93009B07AA /* ReviewViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewViewDataSource.swift; sourceTree = "<group>"; };
+		7A33990D1F1715C7009B07AA /* FriendPaymentDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendPaymentDetailViewModel.swift; sourceTree = "<group>"; };
+		7A33990F1F1733CC009B07AA /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		7A3DACB41F16787500A2AB14 /* FriendItemsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendItemsTableViewCell.swift; sourceTree = "<group>"; };
+		7A3DACB61F16790100A2AB14 /* ReviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
 		7ACA11971EF76700007ED13D /* ActivityDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityDataSource.swift; sourceTree = "<group>"; };
 		7ACA11991EF76763007ED13D /* ActivityViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityViewModel.swift; sourceTree = "<group>"; };
 		7ACA119C1EF7678C007ED13D /* Activity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
@@ -96,6 +106,7 @@
 				7A01AF2F1EF733D200AC701C /* Assets.xcassets */,
 				7A01AF311EF733D200AC701C /* LaunchScreen.storyboard */,
 				7A01AF341EF733D200AC701C /* Info.plist */,
+				7A33990F1F1733CC009B07AA /* Helper.swift */,
 			);
 			path = DineOut;
 			sourceTree = "<group>";
@@ -106,6 +117,7 @@
 				7ACA11971EF76700007ED13D /* ActivityDataSource.swift */,
 				CE06EA761EFF8B5D0051D8D8 /* AddRecipientsDataSourceDelegate.swift */,
 				CE1D5FA01F09AB980074AE0C /* ItemFriendBindingDataSourceDelegate.swift */,
+				7A33990B1F170E93009B07AA /* ReviewViewDataSource.swift */,
 			);
 			name = DataSources;
 			sourceTree = "<group>";
@@ -116,6 +128,7 @@
 				7ACA11991EF76763007ED13D /* ActivityViewModel.swift */,
 				CE06EA7A1EFF8F760051D8D8 /* AddRecipientsViewModel.swift */,
 				CE1D5FA41F09AC680074AE0C /* ReceiptViewModel.swift */,
+				7A33990D1F1715C7009B07AA /* FriendPaymentDetailViewModel.swift */,
 			);
 			name = ViewModels;
 			sourceTree = "<group>";
@@ -137,6 +150,7 @@
 				CE06EA741EFF82D20051D8D8 /* AddRecipientsViewController.swift */,
 				CE06EA7C1F002DFB0051D8D8 /* TakePhotoViewController.swift */,
 				CE1D5F9E1F09AB540074AE0C /* ItemFriendBindingViewController.swift */,
+				7A3DACB61F16790100A2AB14 /* ReviewViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -148,6 +162,7 @@
 				CE06EA781EFF8C860051D8D8 /* FriendTableCell.swift */,
 				CED8DB911F0C35B10089542E /* FriendCollectionViewCell.swift */,
 				CEACC7A91F0B06BB00D34C06 /* ItemTableViewCell.swift */,
+				7A3DACB41F16787500A2AB14 /* FriendItemsTableViewCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -227,20 +242,25 @@
 			files = (
 				CED8DB921F0C35B10089542E /* FriendCollectionViewCell.swift in Sources */,
 				CE1D5FA51F09AC680074AE0C /* ReceiptViewModel.swift in Sources */,
+				7A3DACB71F16790100A2AB14 /* ReviewViewController.swift in Sources */,
 				CE1D5F9F1F09AB540074AE0C /* ItemFriendBindingViewController.swift in Sources */,
 				7ACA119F1EF78833007ED13D /* Person.swift in Sources */,
 				CE1D5FA11F09AB980074AE0C /* ItemFriendBindingDataSourceDelegate.swift in Sources */,
 				CE1D5FA71F09BD060074AE0C /* Receipt.swift in Sources */,
 				7ACA119D1EF7678C007ED13D /* Activity.swift in Sources */,
+				7A33990E1F1715C7009B07AA /* FriendPaymentDetailViewModel.swift in Sources */,
 				CE06EA7B1EFF8F760051D8D8 /* AddRecipientsViewModel.swift in Sources */,
 				7A01AF2B1EF733D200AC701C /* ActivityViewController.swift in Sources */,
 				CEC651161EFF6E0A00161D23 /* ActivityTableCell.swift in Sources */,
 				7A01AF291EF733D200AC701C /* AppDelegate.swift in Sources */,
 				CE06EA771EFF8B5D0051D8D8 /* AddRecipientsDataSourceDelegate.swift in Sources */,
+				7A3DACB51F16787500A2AB14 /* FriendItemsTableViewCell.swift in Sources */,
 				CE06EA791EFF8C860051D8D8 /* FriendTableCell.swift in Sources */,
 				7ACA11981EF76700007ED13D /* ActivityDataSource.swift in Sources */,
 				CE06EA751EFF82D20051D8D8 /* AddRecipientsViewController.swift in Sources */,
 				CE06EA7D1F002DFB0051D8D8 /* TakePhotoViewController.swift in Sources */,
+				7A33990C1F170E93009B07AA /* ReviewViewDataSource.swift in Sources */,
+				7A3399101F1733CC009B07AA /* Helper.swift in Sources */,
 				CEACC7AA1F0B06BB00D34C06 /* ItemTableViewCell.swift in Sources */,
 				7ACA119A1EF76763007ED13D /* ActivityViewModel.swift in Sources */,
 			);

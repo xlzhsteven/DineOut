@@ -34,6 +34,7 @@ extension ItemFriendBindingDataSourceDelegate: UITableViewDataSource {
             let itemPrice = item.itemPrice {
             cell.selectionStyle = .none
             cell.itemNameLabel.text = item.itemName
+            cell.item = item
             cell.itemPriceLabel.text = String(format: "$%.02f", locale: Locale.current, arguments: [itemPrice])
             return cell
         } else {

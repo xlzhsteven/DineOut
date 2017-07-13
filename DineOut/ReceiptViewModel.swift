@@ -18,14 +18,15 @@ class ReceiptViewModel: NSObject {
         super.init()
     }
     
-  func loadData(success: @escaping (Receipt) -> Void) {
-    // func loadData(_ base64ImageString: String, success: @escaping (Receipt) -> Void) {
+//  func loadData(_ base64ImageString: String, success: @escaping (Receipt) -> Void) {
+     func loadData(_ base64ImageString: String, success: @escaping (Receipt) -> Void) {
     let URL = "https://universal-linking-xiaolong.herokuapp.com/sample.json"
     Alamofire.request(URL).responseObject { (response: DataResponse<Receipt>) in
       if let resp = response.result.value {
         success(resp)
       }
     }
+//    let URL = "http://104.198.156.175/"
 //    let parameters = ["data": base64ImageString]
 //    Alamofire.request(URL, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseObject { (response: DataResponse<Receipt>) in
 //      if let resp = response.result.value {

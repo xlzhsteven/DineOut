@@ -12,8 +12,7 @@ class ActivityDataSource: NSObject {
     
     private weak var activityViewController: ActivityViewController?
     fileprivate var activityViewModel: ActivityViewModel
-    fileprivate let formatter = NumberFormatter()
-    
+  
     init(activityVC: ActivityViewController) {
         self.activityViewController = activityVC
         self.activityViewModel = ActivityViewModel()
@@ -31,7 +30,7 @@ extension ActivityDataSource: UITableViewDataSource {
         cell.paymentInfoLabel.text = "\(activity.sender.firstName) \(activity.sender.lastName) paid \(activity.receiver.firstName) \(activity.receiver.lastName)"
         cell.favNumberLabel.text = "\(activity.numberOfLikes)"
         if let amount = activity.amount, amount != 0.0 {
-            cell.amountLabel.text = convertToCurrencyString(amount)
+            cell.amountLabel.text = Helper.convertToCurrencyString(amount)
             if amount < 0 {
                 cell.amountLabel.textColor = UIColor.red
             }
@@ -62,10 +61,5 @@ extension ActivityDataSource: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return activityViewModel.numberOfSection()
     }
-    
-    func convertToCurrencyString(_ amount: Double) -> String {
-        let price = amount as NSNumber
-        formatter.numberStyle = .currency
-        return formatter.string(from: price)!
-    }
+  
 }
