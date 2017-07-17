@@ -12,11 +12,12 @@ class ActivityViewController: UIViewController {
 
     @IBOutlet weak var activityTable: UITableView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
-    
+    var additionalActivities: [Activity] = []
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        activityViewDataSource = ActivityDataSource(activityVC: self)
+        activityViewDataSource = ActivityDataSource(activityVC: self, withAdditionalData: additionalActivities)
         activityTable.separatorStyle = .none
         activityTable.rowHeight = UITableViewAutomaticDimension
         activityTable.estimatedRowHeight = 110

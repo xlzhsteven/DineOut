@@ -42,6 +42,15 @@ class ItemFriendBindingViewController: UIViewController {
       }
     }
   
+  func getItem(fromItemName itemName: String) -> Item? {
+    for item in receipt!.items! {
+      if item.itemName == itemName {
+        return item
+      }
+    }
+    return nil
+  }
+  
     func initFriendItemsMapWithKeys(_ selectedFriends: [Person]) {
       for friend in selectedFriends {
         friendItemsMap[friend.userName] = []
@@ -218,8 +227,8 @@ class ItemFriendBindingViewController: UIViewController {
     }
   
     func validateData() -> Bool {
-      for (_, friends) in itemFriendsMap {
-        if friends.isEmpty {
+      for (item, friends) in itemFriendsMap {
+        if friends.isEmpty && getItem(fromItemName: item)!.itemPrice != 0 {
           let alertController = UIAlertController(title: "Something is missing", message:
             "Please make sure all the items are binded with at least one friend", preferredStyle: .alert)
           alertController.addAction(UIAlertAction(title: "Dismiss", style: .default,handler: nil))

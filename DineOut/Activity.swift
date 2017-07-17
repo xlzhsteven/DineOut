@@ -16,8 +16,10 @@ class Activity: NSObject {
     var numberOfLikes: Int
     var numberOfComments: Int
     var amount: Double?
-    
-    init(sender: Person, receiver: Person, activityToDate: String, paymentMessage: String, numberOfLikes: Int, numberOfComments: Int, amount: Double? = 0) {
+    var transactionDirection: MoneyTransactionDirection
+		
+  
+  init(sender: Person, receiver: Person, activityToDate: String, paymentMessage: String, numberOfLikes: Int, numberOfComments: Int, amount: Double? = 0, transactionDirection: MoneyTransactionDirection) {
         self.sender = sender
         self.receiver = receiver
         self.activityToDate = activityToDate
@@ -25,6 +27,12 @@ class Activity: NSObject {
         self.numberOfLikes = numberOfLikes
         self.numberOfComments = numberOfComments
         self.amount = amount
+        self.transactionDirection = transactionDirection
     }
     
+}
+
+enum MoneyTransactionDirection: String {
+  case requestMoney = "requested money from"
+  case sendMoney = "paid"
 }

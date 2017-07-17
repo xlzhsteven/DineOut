@@ -13,9 +13,11 @@ class ActivityDataSource: NSObject {
     private weak var activityViewController: ActivityViewController?
     fileprivate var activityViewModel: ActivityViewModel
   
-    init(activityVC: ActivityViewController) {
+    init(activityVC: ActivityViewController, withAdditionalData additionalData: [Activity] = []) {
         self.activityViewController = activityVC
         self.activityViewModel = ActivityViewModel()
+        self.activityViewModel.loadActivities()
+        self.activityViewModel.addActivity(toActivityList: additionalData)
     }
 }
 
@@ -24,10 +26,15 @@ extension ActivityDataSource: UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "activityCell", for: indexPath) as! ActivityTableCell
         let activity = activityViewModel.activity(withIndex: indexPath.row)
+      if activity.transactionDirection == .sendMoney {
         cell.profileImageView.image = UIImage(named: activity.sender.profileImageName!)
+      } else {
+        cell.profileImageView.image = UIImage(named: activity.receiver.profileImageName!)
+      }
+      
         cell.paymentMsgLabel.text = activity.paymentMessage
         cell.timeToDateLabel.text = activity.activityToDate
-        cell.paymentInfoLabel.text = "\(activity.sender.firstName) \(activity.sender.lastName) paid \(activity.receiver.firstName) \(activity.receiver.lastName)"
+        cell.paymentInfoLabel.text = "\(activity.sender.firstName) \(activity.sender.lastName) \(activity.transactionDirection.rawValue) \(activity.receiver.firstName) \(activity.receiver.lastName)"
         cell.favNumberLabel.text = "\(activity.numberOfLikes)"
         if let amount = activity.amount, amount != 0.0 {
             cell.amountLabel.text = Helper.convertToCurrencyString(amount)

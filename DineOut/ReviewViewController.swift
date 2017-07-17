@@ -24,7 +24,7 @@ class ReviewViewController: UIViewController {
   
   var splitState: SplitState = .review
   var tipPercentage = 0.18
-  var taxRate = 0.09
+  var taxRate = 0.0924
   
   var itemFriendsMap: [String: [Person]]?
   var friendItemsMap: [String: [Item]]?
@@ -40,7 +40,7 @@ class ReviewViewController: UIViewController {
       
       if splitState == .confirm {
         setupViewForConfirmationView()
-        addSuccessAlertTapGestureTo(view: splitButtonView)
+        addSuccessTapGestureTo(view: splitButtonView)
       } else {
         addTapGestureTo(view: splitButtonView)
       }
@@ -52,16 +52,36 @@ class ReviewViewController: UIViewController {
     view.addGestureRecognizer(tap)
   }
   
-  func addSuccessAlertTapGestureTo(view: UIView) {
+  func addSuccessTapGestureTo(view: UIView) {
     view.isUserInteractionEnabled = true
-    let tap = UITapGestureRecognizer(target: self, action: #selector(self.showAlertWithSuccessMessage(_:)))
+    let tap = UITapGestureRecognizer(target: self, action: #selector(self.showSuccessWithActivityPage(_:)))
     view.addGestureRecognizer(tap)
   }
   
-  func showAlertWithSuccessMessage(_ sender: UITapGestureRecognizer) {
-    let alert = UIAlertController(title: "Success", message: "You have successfully splitted your bill", preferredStyle: .alert)
-    alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
-    self.present(alert, animated: true, completion: nil)
+  func showSuccessWithActivityPage(_ sender: UITapGestureRecognizer) {
+    let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+    let activityController = storyBoard.instantiateViewController(withIdentifier: "activityPage") as! ActivityViewController
+    activityController.additionalActivities = prepareActivitiesFromFriendItemsMap()
+    self.show(activityController, sender: self)
+  }
+  
+  func prepareActivitiesFromFriendItemsMap() -> [Activity] {
+    var activities = [Activity]()
+    var activty: Activity?
+    let sender = Person(firstName: "Suryatej", lastName: "Gundavelli", userName: "suryatejGundavelli", profileImageName: "user_suryatejgundavelli")
+    var paymentMessage = ""
+    for friend in selectedFriends!.values {
+      if friend.userName == sender.userName {
+        continue
+      }
+      for item in friendItemsMap![friend.userName]! {
+        paymentMessage += "\(item.itemName!) "
+      }
+      
+      activty = Activity(sender: sender, receiver: friend, activityToDate: "0m", paymentMessage: paymentMessage, numberOfLikes: 0, numberOfComments: 0, transactionDirection: .requestMoney)
+      activities.append(activty!)
+    }
+    return activities
   }
   
   func handleTap(_ sender: UITapGestureRecognizer) {
