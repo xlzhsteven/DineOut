@@ -29,7 +29,9 @@ class AddRecipientsViewModel: NSObject {
         friends.append(Person(firstName: "Sophie", lastName: "Lewis", userName: "sophieLewis", profileImageName: "user_sophielewis"))
         friends.append(Person(firstName: "Xiaolong", lastName: "Zhang", userName: "xiaolongzhang", profileImageName: "user_xiaolongzhang"))
         friends.append(Person(firstName: "Vanessa", lastName: "Hudson", userName: "vanessaHudson", profileImageName: "user_vanessahudson"))
-        
+        friends.append(Person(firstName: "Mike", lastName: "Vaughan", userName: "mikeVaughan", profileImageName: "user_mikevenmo"))
+      
+        topPeople.append(Person(firstName: "Mike", lastName: "Vaughan", userName: "mikeVaughan", profileImageName: "user_mikevenmo"))
         topPeople.append(Person(firstName: "Kevin", lastName: "Ward", userName: "kevinWard", profileImageName: "user_kevinward"))
         topPeople.append(Person(firstName: "Justin", lastName: "Kuo", userName: "justinKuo", profileImageName: "user_justinkuo"))
     }

@@ -14,11 +14,10 @@ class ActivityViewModel: NSObject {
     
     override init() {
         super.init()
-//        loadActivities()
     }
   
     func addActivity(toActivityList activityList: [Activity]) {
-        activities.append(contentsOf: activityList)
+        activities.insert(contentsOf: activityList, at: 0)
     }
   
     func loadActivities() {

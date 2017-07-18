@@ -82,6 +82,7 @@ class ItemFriendBindingViewController: UIViewController {
       struct Path {
         static var initialIndexPath: IndexPath?
         static var finalTableIndexPath: IndexPath?
+        static var finalLocationInCollection: CGPoint?
       }
       
       switch state {
@@ -91,7 +92,7 @@ class ItemFriendBindingViewController: UIViewController {
           let cell = friendListCollectionView.cellForItem(at: collectionIndexPath!) as! FriendCollectionViewCell
           My.cellSnapshot = snapshotOfCell((cell.friend?.profileImageName)!)
           
-          let center = calculateSnapShotLocation(cell, locationInTableView)
+          let center = calculateSnapShotLocation(cell, itemListTableView, locationInCollectionView)
           My.cellSnapshot?.center = center
           My.cellSnapshot?.alpha = 0
           containerView.addSubview(My.cellSnapshot!)
@@ -120,10 +121,11 @@ class ItemFriendBindingViewController: UIViewController {
       case .changed:
         if My.cellSnapshot != nil {
           var center = My.cellSnapshot!.center
-          center.y = locationInTableView.y + My.cellSnapshot!.frame.size.height/2
+          center.y = itemListTableView.frame.height + locationInCollectionView.y + My.cellSnapshot!.frame.height/2
           center.x = locationInTableView.x
           My.cellSnapshot!.center = center
           Path.finalTableIndexPath = tableIndexPath
+          Path.finalLocationInCollection = locationInCollectionView
         }
         
         
@@ -137,7 +139,7 @@ class ItemFriendBindingViewController: UIViewController {
             friendCell.alpha = 0.0
           }
           
-          if Path.finalTableIndexPath != nil {
+          if Path.finalTableIndexPath != nil && Path.finalLocationInCollection!.y < 0 {
             let itemCell = itemListTableView.cellForRow(at: Path.finalTableIndexPath!) as! ItemTableViewCell
             addFriendToItem(itemCell, friendCell)
 //            let addImage = friendCell.profileImageView.image
@@ -181,7 +183,7 @@ class ItemFriendBindingViewController: UIViewController {
   
   func snapshotOfCell(_ imageName: String) -> UIView {
     let inputView = UIImageView(image: UIImage(named: imageName))
-    UIGraphicsBeginImageContextWithOptions(inputView.bounds.size, false, 0.0)
+    UIGraphicsBeginImageContextWithOptions(inputView.frame.size, false, 0.0)
     inputView.layer.render(in: UIGraphicsGetCurrentContext()!)
     let image = UIGraphicsGetImageFromCurrentImageContext()!
     UIGraphicsEndImageContext()
@@ -195,10 +197,10 @@ class ItemFriendBindingViewController: UIViewController {
     return cellSnapshot
   }
   
-  func calculateSnapShotLocation(_ friendCell: FriendCollectionViewCell, _ locationInTableView: CGPoint) -> CGPoint {
+  func calculateSnapShotLocation(_ friendCollectionViewCell: FriendCollectionViewCell, _ itemListTableView: UITableView, _ locationInCollectionView: CGPoint) -> CGPoint {
     var resultCenter = CGPoint()
-    resultCenter.x = locationInTableView.x
-    resultCenter.y = locationInTableView.y + friendCell.profileImageView.frame.size.height/2
+    resultCenter.x = locationInCollectionView.x
+    resultCenter.y = itemListTableView.frame.height + locationInCollectionView.y + friendCollectionViewCell.profileImageView.frame.height/2 + 8
     return resultCenter
   }
 
