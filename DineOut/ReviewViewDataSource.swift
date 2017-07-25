@@ -47,9 +47,10 @@ extension ReviewViewDataSource: UITableViewDataSource {
       totalPrice += item.itemPrice!
     }
     if state == .confirm {
+      let taxRate = UserDefaults.standard.double(forKey: "taxRate")
       cell.editImageView.image = nil
       let calculatedTip = Helper.calculateWith(value: totalPrice, andPercentage: (reviewViewController?.tipPercentage)!)
-      let calculatedTax = Helper.calculateWith(value: totalPrice, andPercentage: (reviewViewController?.taxRate)!)
+      let calculatedTax = Helper.calculateWith(value: totalPrice, andPercentage: taxRate)
       itemNames = "\(itemNames)Tip\nTax"
       itemPrices = "\(itemPrices)\(calculatedTip.string)\n\(calculatedTax.string)"
       totalPrice += calculatedTax.value + calculatedTip.value

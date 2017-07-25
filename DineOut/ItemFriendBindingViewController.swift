@@ -207,6 +207,8 @@ class ItemFriendBindingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNextButton()
+        let taxRate = (receipt?.tax)!/(receipt?.subTotal)!
+        UserDefaults.standard.set(taxRate, forKey: "taxRate")
         itemFriendBindingDataSourceDelegate = ItemFriendBindingDataSourceDelegate(itemFriendBindingVC: self)
         itemListTableView.estimatedRowHeight = 60
         itemListTableView.rowHeight = UITableViewAutomaticDimension
