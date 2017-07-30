@@ -26,7 +26,7 @@ class ReceiptViewModel: NSObject {
         success(resp)
       }
     }
-//    let URL = "http://104.198.156.175/"
+//    let URL = "http://10.176.8.19:5000/submitImage"
 //    let parameters = ["data": base64ImageString]
 //    Alamofire.request(URL, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseObject { (response: DataResponse<Receipt>) in
 //      if let resp = response.result.value {
