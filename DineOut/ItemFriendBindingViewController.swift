@@ -57,7 +57,7 @@ class ItemFriendBindingViewController: UIViewController {
       }
     }
   
-    func longPressGestureRecognized(gestureRecognizer: UIGestureRecognizer) {
+  @objc func longPressGestureRecognized(gestureRecognizer: UIGestureRecognizer) {
       let longPress = gestureRecognizer as! UILongPressGestureRecognizer
       let state = longPress.state
       
@@ -211,14 +211,14 @@ class ItemFriendBindingViewController: UIViewController {
         UserDefaults.standard.set(taxRate, forKey: "taxRate")
         itemFriendBindingDataSourceDelegate = ItemFriendBindingDataSourceDelegate(itemFriendBindingVC: self)
         itemListTableView.estimatedRowHeight = 60
-        itemListTableView.rowHeight = UITableViewAutomaticDimension
+      itemListTableView.rowHeight = UITableView.automaticDimension
     }
   
     func setupNextButton() {
       navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .plain, target: self, action: #selector(nextButtonClicked))
     }
   
-    func nextButtonClicked() {
+  @objc func nextButtonClicked() {
       // Validating to make sure all the items are taken
       if validateData() {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)

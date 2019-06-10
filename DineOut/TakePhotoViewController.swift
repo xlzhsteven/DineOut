@@ -39,11 +39,11 @@ class TakePhotoViewController: UIViewController {
     }
     
     func setupSession() {
-        captureSession.sessionPreset = AVCaptureSessionPresetHigh
-        let camera = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
+      captureSession.sessionPreset = AVCaptureSession.Preset.high
+      let camera = AVCaptureDevice.default(for: AVMediaType.video)
         
         do {
-            let input = try AVCaptureDeviceInput(device: camera)
+            let input = try AVCaptureDeviceInput(device: camera!)
             if captureSession.canAddInput(input) {
                 captureSession.addInput(input)
                 activeInput = input
@@ -64,7 +64,7 @@ class TakePhotoViewController: UIViewController {
         // Configure previewLayer
         previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
         previewLayer.frame = camPreview.bounds
-        previewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill
+      previewLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
         camPreview.layer.addSublayer(previewLayer)
         
         // Attach tap recognizer for focus & exposure.
@@ -113,10 +113,10 @@ class TakePhotoViewController: UIViewController {
     }
     
     // MARK: Focus Methods
-    func tapToFocus(_ recognizer: UIGestureRecognizer) {
+  @objc func tapToFocus(_ recognizer: UIGestureRecognizer) {
         if activeInput.device.isFocusPointOfInterestSupported {
             let point = recognizer.location(in: camPreview)
-            let pointOfInterest = previewLayer.captureDevicePointOfInterest(for: point)
+          let pointOfInterest = previewLayer.captureDevicePointConverted(fromLayerPoint: point)
             showMarkerAtPoint(point, marker: focusMarker)
             focusAtPoint(pointOfInterest)
         }
@@ -125,13 +125,13 @@ class TakePhotoViewController: UIViewController {
     func focusAtPoint(_ point: CGPoint) {
         let device = activeInput.device
         // Make sure the device supports focus on POI and Auto Focus.
-        if (device?.isFocusPointOfInterestSupported)! &&
-            (device?.isFocusModeSupported(AVCaptureFocusMode.autoFocus))! {
+      if (device.isFocusPointOfInterestSupported) &&
+        (device.isFocusModeSupported(AVCaptureDevice.FocusMode.autoFocus)) {
             do {
-                try device?.lockForConfiguration()
-                device?.focusPointOfInterest = point
-                device?.focusMode = AVCaptureFocusMode.autoFocus
-                device?.unlockForConfiguration()
+                try device.lockForConfiguration()
+                device.focusPointOfInterest = point
+              device.focusMode = AVCaptureDevice.FocusMode.autoFocus
+                device.unlockForConfiguration()
             } catch {
                 print("Error focusing on POI: \(error)")
             }
@@ -139,10 +139,10 @@ class TakePhotoViewController: UIViewController {
     }
     
     // MARK: Exposure Methods
-    func tapToExpose(_ recognizer: UIGestureRecognizer) {
+  @objc func tapToExpose(_ recognizer: UIGestureRecognizer) {
         if activeInput.device.isExposurePointOfInterestSupported {
             let point = recognizer.location(in: camPreview)
-            let pointOfInterest = previewLayer.captureDevicePointOfInterest(for: point)
+          let pointOfInterest = previewLayer.captureDevicePointConverted(fromLayerPoint: point)
             showMarkerAtPoint(point, marker: exposureMarker)
             exposeAtPoint(pointOfInterest)
         }
@@ -150,20 +150,20 @@ class TakePhotoViewController: UIViewController {
     
     func exposeAtPoint(_ point: CGPoint) {
         let device = activeInput.device
-        if (device?.isExposurePointOfInterestSupported)! &&
-            (device?.isExposureModeSupported(AVCaptureExposureMode.continuousAutoExposure))! {
+      if (device.isExposurePointOfInterestSupported) &&
+        (device.isExposureModeSupported(AVCaptureDevice.ExposureMode.continuousAutoExposure)) {
             do {
-                try device?.lockForConfiguration()
-                device?.exposurePointOfInterest = point
-                device?.exposureMode = AVCaptureExposureMode.continuousAutoExposure
+                try device.lockForConfiguration()
+                device.exposurePointOfInterest = point
+              device.exposureMode = AVCaptureDevice.ExposureMode.continuousAutoExposure
                 
-                if (device?.isExposureModeSupported(AVCaptureExposureMode.locked))! {
-                    device?.addObserver(self,
+              if (device.isExposureModeSupported(AVCaptureDevice.ExposureMode.locked)) {
+                    device.addObserver(self,
                                         forKeyPath: "adjustingExposure",
                                         options: NSKeyValueObservingOptions.new,
                                         context: &adjustingExposureContext)
                     
-                    device?.unlockForConfiguration()
+                    device.unlockForConfiguration()
                 }
             } catch {
                 print("Error exposing on POI: \(error)")
@@ -179,7 +179,7 @@ class TakePhotoViewController: UIViewController {
         if context == &adjustingExposureContext {
             let device = object as! AVCaptureDevice
             if !device.isAdjustingExposure &&
-                device.isExposureModeSupported(AVCaptureExposureMode.locked) {
+              device.isExposureModeSupported(AVCaptureDevice.ExposureMode.locked) {
                 (object as AnyObject).removeObserver(self,
                                                      forKeyPath: "adjustingExposure",
                                                      context: &adjustingExposureContext)
@@ -187,7 +187,7 @@ class TakePhotoViewController: UIViewController {
                 DispatchQueue.main.async(execute: { () -> Void in
                     do {
                         try device.lockForConfiguration()
-                        device.exposureMode = AVCaptureExposureMode.locked
+                      device.exposureMode = AVCaptureDevice.ExposureMode.locked
                         device.unlockForConfiguration()
                     } catch {
                         print("Error exposing on POI: \(error)")
@@ -204,35 +204,35 @@ class TakePhotoViewController: UIViewController {
     }
     
     // MARK: Reset Focus and Exposure
-    func resetFocusAndExposure() {
+  @objc func resetFocusAndExposure() {
         let device = activeInput.device
-        let focusMode = AVCaptureFocusMode.continuousAutoFocus
-        let exposureMode = AVCaptureExposureMode.continuousAutoExposure
+    let focusMode = AVCaptureDevice.FocusMode.continuousAutoFocus
+    let exposureMode = AVCaptureDevice.ExposureMode.continuousAutoExposure
         
-        let canResetFocus = (device?.isFocusPointOfInterestSupported)! &&
-            (device?.isFocusModeSupported(focusMode))!
-        let canResetExposure = (device?.isExposurePointOfInterestSupported)! &&
-            (device?.isExposureModeSupported(exposureMode))!
+        let canResetFocus = (device.isFocusPointOfInterestSupported) &&
+            (device.isFocusModeSupported(focusMode))
+        let canResetExposure = (device.isExposurePointOfInterestSupported) &&
+            (device.isExposureModeSupported(exposureMode))
         
         let center = CGPoint(x: 0.5, y: 0.5)
         
         if canResetFocus || canResetExposure {
-            let markerCenter = previewLayer.pointForCaptureDevicePoint(ofInterest: center)
+          let markerCenter = previewLayer.layerPointConverted(fromCaptureDevicePoint: center)
             showMarkerAtPoint(markerCenter, marker: resetMarker)
         }
         
         do {
-            try device?.lockForConfiguration()
+            try device.lockForConfiguration()
             if canResetFocus {
-                device?.focusMode = focusMode
-                device?.focusPointOfInterest = center
+                device.focusMode = focusMode
+                device.focusPointOfInterest = center
             }
             if canResetExposure {
-                device?.exposureMode = exposureMode
-                device?.exposurePointOfInterest = center
+                device.exposureMode = exposureMode
+                device.exposurePointOfInterest = center
             }
             
-            device?.unlockForConfiguration()
+            device.unlockForConfiguration()
         } catch {
             print("Error resetting focus & exposure: \(error)")
         }
@@ -244,7 +244,7 @@ class TakePhotoViewController: UIViewController {
         
         UIView.animate(withDuration: 0.15,
                        delay: 0.0,
-                       options: UIViewAnimationOptions(),
+                       options: UIView.AnimationOptions(),
                        animations: { () -> Void in
                         marker.layer.transform = CATransform3DMakeScale(0.5, 0.5, 1.0)
         }) { (Bool) -> Void in
@@ -299,12 +299,12 @@ class TakePhotoViewController: UIViewController {
     }
     
     @IBAction func capturePhoto(_ sender: Any) {
-        let connection = imageOutput.connection(withMediaType: AVMediaTypeVideo)
+      let connection = imageOutput.connection(with: AVMediaType.video)
         if (connection?.isVideoOrientationSupported)! {
             connection?.videoOrientation = currentVideoOrientation()
         }
         
-        imageOutput.captureStillImageAsynchronously(from: connection) {
+        imageOutput.captureStillImageAsynchronously(from: connection!) {
             (sampleBuffer: CMSampleBuffer!, error: Error!) -> Void in
             if sampleBuffer != nil {
                 let imageData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(sampleBuffer)

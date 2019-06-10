@@ -19,7 +19,7 @@ class ActivityViewController: UIViewController {
         
         activityViewDataSource = ActivityDataSource(activityVC: self, withAdditionalData: additionalActivities)
         activityTable.separatorStyle = .none
-        activityTable.rowHeight = UITableViewAutomaticDimension
+      activityTable.rowHeight = UITableView.automaticDimension
         activityTable.estimatedRowHeight = 110
     }
 

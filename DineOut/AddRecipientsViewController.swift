@@ -28,7 +28,7 @@ class AddRecipientsViewController: UIViewController {
         super.viewDidLoad()
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(backButtonClicked))
         addRecipientsViewDataSource = AddRecipientsDataSourceDelegate(addRecipentsVC: self)
-        friendsListTableView.rowHeight = UITableViewAutomaticDimension
+      friendsListTableView.rowHeight = UITableView.automaticDimension
         friendsListTableView.estimatedRowHeight = 80
         if transactionMethod == .splitBill {
             showSelectAllFriendsUIView()
@@ -48,7 +48,7 @@ class AddRecipientsViewController: UIViewController {
         super.viewWillAppear(animated)
     }
     
-    func backButtonClicked() {
+  @objc func backButtonClicked() {
         navigationController?.popViewController(animated: true)
         dismiss(animated: true, completion: nil)
     }
@@ -66,13 +66,13 @@ class AddRecipientsViewController: UIViewController {
     }
     
     func spinnerNavigationRightBarItem() {
-        let uiBusy = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+      let uiBusy = UIActivityIndicatorView(style: .gray)
         uiBusy.hidesWhenStopped = true
         uiBusy.startAnimating()
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: uiBusy)
     }
     
-    func nextButtonClicked() {
+  @objc func nextButtonClicked() {
         print("segueway to DineOut page")
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let itemFriendBindingViewController = storyBoard.instantiateViewController(withIdentifier: "itemFriendBinding") as! ItemFriendBindingViewController

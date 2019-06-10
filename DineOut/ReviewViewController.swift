@@ -36,7 +36,7 @@ class ReviewViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.separatorStyle = .none
-        tableView.rowHeight = UITableViewAutomaticDimension
+      tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 100
         reviewViewDataSource = ReviewViewDataSource(reviewVC: self)
         navigationItem.title = "Review"
@@ -61,7 +61,7 @@ class ReviewViewController: UIViewController {
     view.addGestureRecognizer(tap)
   }
   
-  func showSuccessWithActivityPage(_ sender: UITapGestureRecognizer) {
+  @objc func showSuccessWithActivityPage(_ sender: UITapGestureRecognizer) {
     let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
     let activityController = storyBoard.instantiateViewController(withIdentifier: "activityPage") as! ActivityViewController
     activityController.additionalActivities = prepareActivitiesFromFriendItemsMap()
@@ -84,7 +84,7 @@ class ReviewViewController: UIViewController {
     return activities
   }
   
-  func handleTap(_ sender: UITapGestureRecognizer) {
+  @objc func handleTap(_ sender: UITapGestureRecognizer) {
     let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
     let confirmViewController = storyBoard.instantiateViewController(withIdentifier: "reviewPage") as! ReviewViewController
     confirmViewController.itemFriendsMap = itemFriendsMap

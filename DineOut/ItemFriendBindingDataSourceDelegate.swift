@@ -83,7 +83,7 @@ extension ItemFriendBindingDataSourceDelegate: UICollectionViewDataSource {
       item.firstName == "Me"
     })
     if let index = index, index != 0 {
-      swap(&returnResult[index], &returnResult[0])
+      returnResult.swapAt(index, 0)
       return returnResult
     }
     return friends

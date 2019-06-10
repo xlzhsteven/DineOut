@@ -20,19 +20,19 @@ class ReceiptViewModel: NSObject {
     
 //  func loadData(_ base64ImageString: String, success: @escaping (Receipt) -> Void) {
      func loadData(_ base64ImageString: String, success: @escaping (Receipt) -> Void) {
-    let URL = "https://universal-linking-xiaolong.herokuapp.com/sample.json"
-    Alamofire.request(URL).responseObject { (response: DataResponse<Receipt>) in
-      if let resp = response.result.value {
-        success(resp)
-      }
-    }
-//    let URL = "http://10.176.8.19:5000/submitImage"
-//    let parameters = ["data": base64ImageString]
-//    Alamofire.request(URL, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseObject { (response: DataResponse<Receipt>) in
+//    let URL = "https://universal-linking-xiaolong.herokuapp.com/sample.json"
+//    Alamofire.request(URL).responseObject { (response: DataResponse<Receipt>) in
 //      if let resp = response.result.value {
 //        success(resp)
 //      }
 //    }
+    let URL = "http://10.225.86.122:5000/test"
+    let parameters = ["data": base64ImageString]
+    Alamofire.request(URL, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseObject { (response: DataResponse<Receipt>) in
+      if let resp = response.result.value {
+        success(resp)
+      }
+    }
   }
   
 }
